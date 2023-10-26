@@ -1,0 +1,67 @@
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgb(28, 28, 28);
+    padding: 4rem 0;
+}
+
+.info {
+    display: flex;
+    gap: 2em;
+}
+
+.info h2 {
+    margin-bottom: 1.5em;
+}
+
+.info p {
+    margin-bottom: 1em;
+}
+
+.info li {
+    margin-bottom: 1em;
+}
+
+.about-as,
+.menu,
+.useful-links,
+.contact-us {
+    display: flex;
+    flex: 1 1 20%;
+    flex-direction: column;
+    color: white;
+}
+
+.menu ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu a,
+.menu li {
+    display: block;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+}
+
+.useful-links a,
+.useful-links li {
+    display: block;
+}
+
+.useful-links a {
+    text-decoration: none;
+    color: white;
+}
+
+.copyrights {
+    display: flex;
+    padding: 1.5rem 0;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
