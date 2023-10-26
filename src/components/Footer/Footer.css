@@ -8,7 +8,7 @@
 
 .info {
     display: flex;
-    gap: 2em;
+    justify-content: space-around;
 }
 
 .info h2 {
@@ -23,12 +23,16 @@
     margin-bottom: 1em;
 }
 
+.info a:hover {
+    color: orangered;
+}
+
 .about-as,
 .menu,
 .useful-links,
 .contact-us {
+    flex-basis: 20%;
     display: flex;
-    flex: 1 1 20%;
     flex-direction: column;
     color: white;
 }
@@ -46,6 +50,7 @@
 .menu a {
     text-decoration: none;
     color: white;
+    transition: color 0.8s ease-in-out;
 }
 
 .useful-links a,
@@ -56,6 +61,7 @@
 .useful-links a {
     text-decoration: none;
     color: white;
+    transition: color 0.8s ease-in-out;
 }
 
 .copyrights {
