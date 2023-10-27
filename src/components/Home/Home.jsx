@@ -1,9 +1,9 @@
 import './Home.css';
 
 export default function Home() {
-    return (
-        <>
-            
-        </>
-    )
+  return (
+    <>
+      <p>Home</p>
+    </>
+  );
 }

@@ -1,14 +1,16 @@
 .footer-container {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-around;
-    background-color: rgb(28, 28, 28);
+    background-color: rgb(40, 40, 40);
     padding: 4rem 0;
 }
 
 .info {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .info h2 {

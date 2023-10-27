@@ -1,7 +1,53 @@
 .header {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: rgb(28, 28, 28);
-    padding: 2rem 1.5rem;
+    justify-content: space-between;
+    background-color: rgb(40, 40, 40);
+    padding: 0.8rem 3rem;
+    align-items: center;
+}
+
+.nav-menu ul {
+    display: flex;
+    align-items: center;
+    gap: 3em;
+}
+
+.nav-menu li,
+.nav-menu a {
+    display: block;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    transition: color 0.8s ease-in-out;
+}
+
+.nav-menu ul li a:hover {
+    color: orangered;
+}
+
+.logo img {
+    color: white;
+    height: 6rem;
+}
+
+.hero-banner {
+    display: flex;
+    width: 100%;
+    min-height: 600px;
+    padding: 4em 6em;
+    background-image: url("/public/background-recipes_lflgqk_c_scale\,w_1920.jpg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+}
+
+.hero-banner .hero-text {
+    flex-basis: 48%;
+    display: flex;
+    color: white;
+    justify-content: flex-start;
+    align-items: flex-end;
 }

@@ -9,5 +9,11 @@
 }
 
 .routing {
-  min-height: 600px;
+  display: flex;
+}
+
+@media (width < 1024px) {
+  .container {
+    max-width: 1024px;
+  }
 }
