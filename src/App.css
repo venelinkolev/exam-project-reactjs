@@ -10,6 +10,8 @@
 
 .routing {
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @media (width < 1024px) {

@@ -27,26 +27,6 @@ export default function Header() {
           </ul>
         </div>
       </header>
-      <section className='hero-banner'>
-        {/* <img
-            sizes="(max-width: 1920px) 100vw, 1920px"
-            srcset="
-            background-recipes_lflgqk_c_scale,w_600.jpg 600w,
-            background-recipes_lflgqk_c_scale,w_1048.jpg 1048w,
-            background-recipes_lflgqk_c_scale,w_1377.jpg 1377w,
-            background-recipes_lflgqk_c_scale,w_1683.jpg 1683w,
-            background-recipes_lflgqk_c_scale,w_1920.jpg 1920w"
-            src="background-recipes_lflgqk_c_scale,w_1920.jpg"
-            alt=""> */}
-        <div className='hero-text'>
-          <h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-            cumque maiores perspiciatis ex laudantium itaque, cum, facere at
-            cupiditate aut amet, quasi ipsum in! Eveniet aspernatur rerum omnis
-            ullam distinctio?
-          </h1>
-        </div>
-      </section>
     </>
   );
 }

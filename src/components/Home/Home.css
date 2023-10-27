@@ -1,0 +1,66 @@
+.hero-banner {
+    display: flex;
+    width: 100%;
+    min-height: 600px;
+    padding: 4em 6em;
+    background-image: url("/public/background-recipes_lflgqk_c_scale\,w_1920.jpg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+}
+
+.hero-banner .hero-text {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.hero-text h1 {
+    font-size: 5rem;
+    margin-bottom: 2rem;
+    text-shadow: 5px 5px 5px rgb(128, 128, 128);
+}
+
+.hero-text p {
+    font-size: 2rem;
+}
+
+.day-recipe {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    gap: 3em;
+}
+
+.day-recipe article,
+.day-recipe .img {
+    flex: 1 1 45%
+}
+
+.day-recipe article a {
+    padding: 0.8em 1.5em;
+    border-radius: 0.5em;
+    background-color: rgb(40, 40, 40);
+    color: white;
+    text-decoration: none;
+}
+
+.day-recipe a:hover {
+    background-color: rgb(255, 69, 0);
+}
+
+.day-recipe article h2 {
+    margin-bottom: 1em;
+    color: rgb(255, 69, 0);
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 2em;
+}
+
+.day-recipe article p {
+    margin-bottom: 4em;
+}
