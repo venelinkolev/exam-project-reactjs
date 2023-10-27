@@ -32,3 +32,20 @@
     color: white;
     height: 6rem;
 }
+
+.recipe-of-day {
+    padding-top: 3em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header-section {
+    color: rgb(40, 40, 40);
+    text-align: center;
+    font-size: 2em;
+    font-weight: 800;
+    line-height: 1.2;
+    border-bottom: 3px solid orangered;
+}

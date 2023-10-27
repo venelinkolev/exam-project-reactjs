@@ -1,0 +1,55 @@
+.day-recipe {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    gap: 2em;
+}
+
+.day-recipe article,
+.day-recipe .img {
+    display: flex;
+    flex: 1 1 45%
+}
+
+.day-recipe article {
+    flex-direction: column;
+    gap: 2em;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.day-recipe article a {
+    padding: 0.8em 1.5em;
+    border-radius: 0.3em;
+    background-color: rgb(40, 40, 40);
+    color: white;
+    text-decoration: none;
+}
+
+.day-recipe a:hover {
+    background-color: rgb(255, 69, 0);
+}
+
+.day-recipe article h2 {
+    color: rgb(255, 69, 0);
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 2em;
+}
+
+.day-recipe article p {
+    font-size: 1.2em;
+}
+
+.day-recipe .img {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.day-recipe .img img {
+    height: 100%;
+    border-radius: 0.3em;
+    box-shadow: 0 0 0.5em 0 rgb(0, 0, 0);
+}
