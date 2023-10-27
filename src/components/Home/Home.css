@@ -3,14 +3,14 @@
     width: 100%;
     min-height: 600px;
     padding: 4em 6em;
-    background-image: url("/public/background-recipes_lflgqk_c_scale\,w_1920.jpg");
+    background-image: url("https://img.freepik.com/free-photo/tasty-fresh-appetizing-italian-food-ingredients-dark-background_1220-1745.jpg?w=996&t=st=1698413613~exp=1698414213~hmac=561f3e47e2567614338ed1e32be1a06b881ce82508faa6736427167d823c7453");
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: cover;
 }
 
 .hero-banner .hero-text {
-    flex-basis: 50%;
+    flex-basis: 39%;
     display: flex;
     flex-direction: column;
     color: white;
@@ -26,11 +26,13 @@
 
 .hero-text p {
     font-size: 2rem;
+    color: rgb(255, 69, 0);
 }
 
 .day-recipe {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin-top: 4rem;
     margin-bottom: 4rem;
     gap: 3em;
@@ -38,12 +40,20 @@
 
 .day-recipe article,
 .day-recipe .img {
+    display: flex;
     flex: 1 1 45%
+}
+
+.day-recipe article {
+    flex-direction: column;
+    gap: 2em;
+    align-items: flex-start;
+    justify-content: space-between;
 }
 
 .day-recipe article a {
     padding: 0.8em 1.5em;
-    border-radius: 0.5em;
+    border-radius: 0.3em;
     background-color: rgb(40, 40, 40);
     color: white;
     text-decoration: none;
@@ -54,7 +64,6 @@
 }
 
 .day-recipe article h2 {
-    margin-bottom: 1em;
     color: rgb(255, 69, 0);
     text-transform: uppercase;
     font-weight: 800;
@@ -62,5 +71,11 @@
 }
 
 .day-recipe article p {
-    margin-bottom: 4em;
+    font-size: 1.2em;
+}
+
+.day-recipe .img img {
+    height: 100%;
+    border-radius: 0.3em;
+    box-shadow: 0 0 0.5em 0 rgb(0, 0, 0);
 }
