@@ -45,4 +45,8 @@
     .hero-text p {
         font-size: 2em;
     }
+
+    .header-section h2 {
+        font-size: 1.3em;
+    }
 }
