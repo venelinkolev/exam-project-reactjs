@@ -2,15 +2,15 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 2em;
     margin-top: 4rem;
     margin-bottom: 4rem;
-    gap: 2em;
 }
 
 .day-recipe article,
 .day-recipe .img {
     display: flex;
-    flex: 1 1 45%
+    flex-basis: 45%;
 }
 
 .day-recipe article {
@@ -44,12 +44,30 @@
 }
 
 .day-recipe .img {
-    display: flex;
+    align-items: center;
     justify-content: flex-end;
 }
 
 .day-recipe .img img {
-    height: 100%;
+    height: 90%;
     border-radius: 0.3em;
     box-shadow: 0 0 0.5em 0 rgb(0, 0, 0);
+}
+
+@media (width < 800px) {
+    .day-recipe {
+        flex-direction: column;
+        align-items: center;
+        padding: 2em;
+    }
+
+    .day-recipe article {
+        align-items: center;
+        text-align: center;
+        order: 2;
+    }
+
+    .day-recipe .img {
+        order: 1;
+    }
 }

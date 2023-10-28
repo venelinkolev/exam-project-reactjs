@@ -6,6 +6,10 @@
     align-items: center;
 }
 
+.menu-icon {
+    display: none;
+}
+
 .nav-menu ul {
     display: flex;
     align-items: center;
@@ -48,4 +52,47 @@
     font-weight: 800;
     line-height: 1.2;
     border-bottom: 3px solid orangered;
+}
+
+.expand-menu {
+    position: absolute;
+    padding: 2em;
+    margin-right: 1em;
+    margin-top: 5em;
+    top: 0;
+    right: 0;
+    background-color: rgb(40, 40, 40);
+}
+
+@media (width < 600px) {
+    .header {
+        justify-content: space-between;
+        padding: 0.5em 1.5em;
+        position: relative;
+    }
+
+    .menu-icon {
+        display: flex;
+        height: 2.5em;
+    }
+
+    .menu-icon svg {
+        fill: white;
+    }
+
+    .logo img {
+        height: 4em;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    /* .expand-menu {
+        display: flex;
+    } */
+
+    .expand-menu ul {
+        flex-direction: column;
+    }
 }

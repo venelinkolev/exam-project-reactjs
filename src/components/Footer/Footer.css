@@ -73,3 +73,15 @@
     justify-content: center;
     font-size: 1.2rem;
 }
+
+@media (width < 600px) {
+    .info {
+        flex-direction: column;
+        padding: 2em;
+    }
+
+    .copyrights {
+        padding: 1em 2em;
+        text-align: center;
+    }
+}

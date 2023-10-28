@@ -28,3 +28,21 @@
     font-size: 2rem;
     color: rgb(255, 69, 0);
 }
+
+@media (width < 600px) {
+    .hero-banner {
+        padding: 2em;
+        width: auto;
+        flex-basis: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-text h1 {
+        font-size: 4em;
+    }
+
+    .hero-text p {
+        font-size: 2em;
+    }
+}
