@@ -17,5 +17,7 @@
 @media (width < 1024px) {
   .container {
     width: auto;
+    padding-left: 2em;
+    padding-right: 2em;
   }
 }
