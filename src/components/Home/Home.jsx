@@ -28,6 +28,7 @@ export default function Home() {
       </div>
       <hr />
       <section className='catalog-home-page'></section>
+      <hr />
       <section className='top-recipes-home-page'></section>
     </>
   );
