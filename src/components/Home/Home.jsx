@@ -1,3 +1,4 @@
+import CatalogHomePage from './CatalogHomePage';
 import DayRecipeCard from './DayRecipeCard';
 import './Home.css';
 
@@ -27,7 +28,9 @@ export default function Home() {
         <DayRecipeCard />
       </div>
       <hr />
-      <section className='catalog-home-page'></section>
+      <section className='catalog-home-page'>
+        <CatalogHomePage />
+      </section>
       <hr />
       <section className='top-recipes-home-page'></section>
     </>
