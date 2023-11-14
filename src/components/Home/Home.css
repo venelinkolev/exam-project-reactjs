@@ -29,6 +29,12 @@
     color: rgb(255, 69, 0);
 }
 
+.catalog-home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @media (width < 600px) {
     .hero-banner {
         padding: 2em;

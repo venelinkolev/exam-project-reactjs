@@ -28,7 +28,7 @@ export default function Home() {
         <DayRecipeCard />
       </div>
       <hr />
-      <section className='catalog-home-page'>
+      <section className='catalog-home-page container'>
         <CatalogHomePage />
       </section>
       <hr />
