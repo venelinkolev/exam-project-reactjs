@@ -6,7 +6,7 @@ export default function DayRecipeCard(prop) {
   const recipe = prop[0];
 
   const description = short(recipe?.ingredients);
-  console.log(description);
+  // console.log(description);
   return (
     <>
       <section className='day-recipe'>
