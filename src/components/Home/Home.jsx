@@ -14,17 +14,14 @@ export default function Home() {
     });
   }, []);
 
-  function recipeOfTheDay(allRecieps) {
+  function recipeOfTheDay() {
     const date = new Date();
-    console.log(date.getDate());
+    // console.log(date.getDate());
 
-    let randomNumber = recipes.length - date.getDate();
-    console.log(randomNumber);
-
-    // let randomNumber = Math.floor(Math.random() * recipes.length + 1);
+    let randomNumber = Math.floor(Math.random() * recipes.length + 1);
     // console.log(randomNumber);
-    // this.randomRecipe = recipes.splice(randomNumber - 1, 1);
-    // console.log(this.randomRecipe);
+    return recipes.splice(randomNumber - 1, 1);
+    // console.log(randomRecipe);
     // if (randomNumber + 3 >= recipes.length) {
     //   let newRandomNumber = randomNumber - 3;
     //   this.myRecipes = recipes.splice(newRandomNumber, 4);
@@ -33,7 +30,6 @@ export default function Home() {
     // }
   }
 
-  recipeOfTheDay();
   return (
     <>
       <section className='hero-banner'>
@@ -54,9 +50,9 @@ export default function Home() {
       </section>
       <div className='recipe-of-day container'>
         <div className='header-section'>
-          <h2>РЕЦЕПТА НА ДЕНЯ</h2>
+          <h2>ОТ КУХНЯТА</h2>
         </div>
-        <DayRecipeCard />
+        <DayRecipeCard {...recipeOfTheDay()} />
       </div>
       <hr />
       <section className='catalog-home-page container'>
