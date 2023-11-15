@@ -1,8 +1,39 @@
+import { useState, useEffect } from 'react';
 import CatalogHomePage from './CatalogHomePage';
 import DayRecipeCard from './DayRecipeCard';
 import './Home.css';
+import { getAllRecipes, getRecipe } from '../../services/recipeServices';
 
 export default function Home() {
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    getAllRecipes().then((result) => {
+      //console.log(result);
+      setRecipes(result);
+    });
+  }, []);
+
+  function recipeOfTheDay(allRecieps) {
+    const date = new Date();
+    console.log(date.getDate());
+
+    let randomNumber = recipes.length - date.getDate();
+    console.log(randomNumber);
+
+    // let randomNumber = Math.floor(Math.random() * recipes.length + 1);
+    // console.log(randomNumber);
+    // this.randomRecipe = recipes.splice(randomNumber - 1, 1);
+    // console.log(this.randomRecipe);
+    // if (randomNumber + 3 >= recipes.length) {
+    //   let newRandomNumber = randomNumber - 3;
+    //   this.myRecipes = recipes.splice(newRandomNumber, 4);
+    // } else {
+    //   this.myRecipes = recipes.splice(randomNumber, 4);
+    // }
+  }
+
+  recipeOfTheDay();
   return (
     <>
       <section className='hero-banner'>
