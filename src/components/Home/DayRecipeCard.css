@@ -46,7 +46,12 @@
 .day-recipe .img {
     align-items: center;
     justify-content: flex-end;
+    height: 20em;
 }
+
+/* .day-recipe .img img {
+    aspect-ratio: 1;
+} */
 
 .day-recipe .img img {
     height: 90%;
@@ -69,5 +74,13 @@
 
     .day-recipe .img {
         order: 1;
+        /* height: auto; */
     }
+
+    .day-recipe .img img {
+        max-width: 300px;
+        /* height: auto; */
+    }
+
+
 }
