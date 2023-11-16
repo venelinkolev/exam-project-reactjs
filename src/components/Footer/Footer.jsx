@@ -19,7 +19,7 @@ export default function Footer() {
             <h2>Меню</h2>
             <ul>
               <li>
-                <Link to='/'>Начало</Link>
+                <Link to='/home'>Начало</Link>
               </li>
               <li>
                 <Link to='/catalog'>Каталог</Link>

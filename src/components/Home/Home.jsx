@@ -30,6 +30,21 @@ export default function Home() {
     // }
   }
 
+  function homeCatalogRecipes() {
+    let catalogRecipes = [];
+
+    let randomNumber = Math.floor(Math.random() * recipes.length + 1);
+
+    if (randomNumber + 5 >= recipes.length) {
+      let newRandomNumber = randomNumber - 5;
+      catalogRecipes = recipes.splice(newRandomNumber, 6);
+    } else {
+      catalogRecipes = recipes.splice(randomNumber, 6);
+    }
+
+    return catalogRecipes;
+  }
+
   return (
     <>
       <section className='hero-banner'>
@@ -55,8 +70,8 @@ export default function Home() {
         <DayRecipeCard {...recipeOfTheDay()} />
       </div>
       <hr />
-      <section className='catalog-home-page container'>
-        <CatalogHomePage />
+      <section className='container catalog-home-page'>
+        <CatalogHomePage recipes={homeCatalogRecipes()} />
       </section>
       <hr />
       <section className='top-recipes-home-page'></section>

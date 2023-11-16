@@ -6,7 +6,9 @@ export default function Header() {
     <>
       <header className='header'>
         <div className='logo'>
-          <img src='/recipes.png' alt='Recipes Logo' />
+          <Link to='/home'>
+            <img src='/recipes.png' alt='Recipes Logo' />
+          </Link>
         </div>
         <div className='menu-icon'>
           <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'>
@@ -16,7 +18,7 @@ export default function Header() {
         <div className='nav-menu'>
           <ul>
             <li>
-              <Link to='/'>Начало</Link>
+              <Link to='/home'>Начало</Link>
             </li>
             <li>
               <Link to='/catalog'>Каталог</Link>

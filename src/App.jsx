@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import { Route, Routes } from 'react-router-dom';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import CatalogPage from './components/Catalog/CatalogPage';
 
 function App() {
   return (
@@ -13,7 +14,12 @@ function App() {
         <Header />
         <div className='routing'>
           <Routes>
-            <Route path='/' element={<Home />} />
+            {['/', 'home'].map((path) => (
+              <Route key={path} path={path} element={<Home />} />
+            ))}
+            {/* <Route path='/' element={<Home />} />
+            <Route path='/home' element={<Home />} /> */}
+            <Route path='/catalog' element={<CatalogPage />} />
             <Route path='*' element={<PageNotFound />} />
           </Routes>
         </div>

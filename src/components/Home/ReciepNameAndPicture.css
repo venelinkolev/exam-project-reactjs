@@ -1,3 +1,38 @@
-.recipe-name {
+.card {
+    display: flex;
+    flex-basis: 30%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.recipe-name h3 {
+    color: orangered;
+    font-weight: 800;
     text-align: center;
+    text-transform: uppercase;
+}
+
+.recipe-picture {
+    overflow: hidden;
+    position: relative;
+    width: 250px;
+    height: 150px;
+    border-radius: 0.3em;
+    box-shadow: 0 0 0.5em 0 rgb(0, 0, 0);
+}
+
+.recipe-picture img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+@media (width < 800px) {
+    .card {
+        flex-basis: 50%;
+    }
 }

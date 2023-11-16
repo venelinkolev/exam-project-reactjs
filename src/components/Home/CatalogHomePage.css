@@ -1,11 +1,11 @@
-.catalog-home-page {
+.catalog-home {
     margin: 1.5em 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.catalog-home-page h2 {
+.catalog-home h2 {
     margin-bottom: 0.8em;
     color: rgb(40, 40, 40);
     text-align: center;
@@ -15,20 +15,28 @@
     border-bottom: 3px solid orangered;
 }
 
-.catalog-home-page p {
+.catalog-home p {
     font-size: 1.2em;
     text-align: center;
     /* color: orangered; */
 }
 
-.catalog-home-page p a {
+.catalog-home p a {
+    padding: 0.2em 0.4em;
     color: orangered;
     font-weight: bold;
     text-decoration: none;
 }
 
+.catalog-home p a:hover {
+    background-color: rgb(128, 128, 128, 0.1);
+    padding: 0.2em 0.4em;
+    border-radius: 0.3em;
+}
+
 .recipes-catalog {
     display: flex;
     flex-wrap: wrap;
+    gap: 2rem;
     justify-content: space-around;
 }
