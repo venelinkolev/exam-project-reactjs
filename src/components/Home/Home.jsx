@@ -9,10 +9,12 @@ export default function Home() {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    getAllRecipes().then((result) => {
-      //console.log(result);
-      setRecipes(result);
-    });
+    getAllRecipes()
+      .then((result) => {
+        //console.log(result);
+        setRecipes(result);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   useTitleChange('Home');

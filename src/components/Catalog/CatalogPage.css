@@ -1,0 +1,25 @@
+.main {
+    padding: 2rem 0;
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    /* min-height: 550px; */
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 69, 0, 1) 100%);
+}
+
+.main h1 {
+    line-height: 0.8em;
+    border-bottom: 3px solid orangered;
+}
+
+.recipe-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 2rem;
+}
