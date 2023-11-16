@@ -3,6 +3,7 @@ import CatalogHomePage from './CatalogHomePage';
 import DayRecipeCard from './DayRecipeCard';
 import './Home.css';
 import { getAllRecipes, getRecipe } from '../../services/recipeServices';
+import useTitleChange from '../../util/useTitleChange';
 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
@@ -13,6 +14,8 @@ export default function Home() {
       setRecipes(result);
     });
   }, []);
+
+  useTitleChange('Home');
 
   function recipeOfTheDay() {
     const date = new Date();
