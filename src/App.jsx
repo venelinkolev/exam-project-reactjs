@@ -7,8 +7,6 @@ import { Route, Routes } from 'react-router-dom';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <div className='site'>

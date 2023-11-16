@@ -10,7 +10,7 @@ export default function PageNotFound() {
           <video
             className='video'
             poster='https://knife.media/wp-content/themes/knife/assets/images/poster-error.jpg'
-            autoplay
+            autoPlay
             preload
             loop
             muted

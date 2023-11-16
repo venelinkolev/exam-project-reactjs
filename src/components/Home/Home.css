@@ -9,6 +9,15 @@
     background-size: cover;
 }
 
+.header-recipe h2 {
+    color: rgb(40, 40, 40);
+    text-align: center;
+    font-size: 3em;
+    font-weight: 800;
+    line-height: 0.8;
+    border-bottom: 3px solid orangered;
+}
+
 .hero-banner .hero-text {
     flex-basis: 39%;
     display: flex;

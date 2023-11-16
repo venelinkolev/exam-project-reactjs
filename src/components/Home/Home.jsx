@@ -49,7 +49,7 @@ export default function Home() {
         </div>
       </section>
       <div className='recipe-of-day container'>
-        <div className='header-section'>
+        <div className='header-recipe'>
           <h2>ОТ КУХНЯТА</h2>
         </div>
         <DayRecipeCard {...recipeOfTheDay()} />

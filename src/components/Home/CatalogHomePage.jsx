@@ -1,18 +1,21 @@
+import { Link } from 'react-router-dom';
 import './CatalogHomePage.css';
 import ReciepNameAndPicture from './ReciepNameAndPicture';
+import CatalogPage from '../Catalog/CatalogPage';
 
 export default function CatalogHomePage() {
   return (
     <>
-      <article>
-        <h2>Каталог</h2>
+      <article className='catalog-home-page'>
+        <h2>КАТАЛОГ</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt vel
-          quidem aliquid porro iste dolorem odit facilis, at natus ipsam
-          cupiditate eos quos perferendis odio ex, voluptatem, non harum! Unde?
+          Може да разгледате малка част от нашите рецепти. Всички рецепти може
+          да разгледате в нашия <Link to='/catalog'>Каталог</Link>.
         </p>
       </article>
-      <ReciepNameAndPicture />
+      <div className='recipes-catalog'>
+        <ReciepNameAndPicture />
+      </div>
     </>
   );
 }

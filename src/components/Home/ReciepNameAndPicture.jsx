@@ -4,7 +4,7 @@ export default function ReciepNameAndPicture() {
   return (
     <>
       <div className='recipe-name'>
-        <p>ЗЕЛЕНЧУКОВА ЗАПЕКАНКА С ЯЙЦА И КАШКАВАЛ</p>
+        <h3>ЗЕЛЕНЧУКОВА ЗАПЕКАНКА С ЯЙЦА И КАШКАВАЛ</h3>
       </div>
       <div className='recipe-picture'>
         <img
