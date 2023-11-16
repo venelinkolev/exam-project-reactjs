@@ -1,12 +1,14 @@
+import { Link } from 'react-router-dom';
+
 import './PageNotFound.css';
 
 export default function PageNotFound() {
   return (
     <>
       <div className='body'>
-        <div class='wrap'>
+        <div className='wrap'>
           <video
-            class='video'
+            className='video'
             poster='https://knife.media/wp-content/themes/knife/assets/images/poster-error.jpg'
             autoplay
             preload
@@ -19,11 +21,11 @@ export default function PageNotFound() {
             />
           </video>
 
-          <div class='message'>
+          <div className='message'>
             <h1>Nothing found</h1>
             <p>
               Better go to the
-              <a href='/'> main page</a>
+              <Link to='/'> Main page</Link>
               <br />
               and read something fresh.
             </p>

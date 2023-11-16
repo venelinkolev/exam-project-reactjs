@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 export default function Footer() {
@@ -18,19 +19,19 @@ export default function Footer() {
             <h2>Меню</h2>
             <ul>
               <li>
-                <a href='#'>Начало</a>
+                <Link to='/'>Начало</Link>
               </li>
               <li>
-                <a href='#'>Каталог</a>
+                <Link to='/catalog'>Каталог</Link>
               </li>
               <li>
-                <a href='#'>Търси</a>
+                <Link to='/search'>Търси</Link>
               </li>
               <li>
-                <a href='#'>Вход</a>
+                <Link to='/login'>Вход</Link>
               </li>
               <li>
-                <a href='#'>Регистрация</a>
+                <Link to='/register'>Регистрация</Link>
               </li>
             </ul>
           </section>

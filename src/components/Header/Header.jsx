@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 export default function Header() {
@@ -15,19 +16,19 @@ export default function Header() {
         <div className='nav-menu'>
           <ul>
             <li>
-              <a href='#'>Начало</a>
+              <Link to='/'>Начало</Link>
             </li>
             <li>
-              <a href='#'>Каталог</a>
+              <Link to='/catalog'>Каталог</Link>
             </li>
             <li>
-              <a href='#'>Търси</a>
+              <Link to='/search'>Търси</Link>
             </li>
             <li>
-              <a href='#'>Вход</a>
+              <Link to='/login'>Вход</Link>
             </li>
             <li>
-              <a href='#'>Регистрация</a>
+              <Link to='/register'>Регистрация</Link>
             </li>
           </ul>
         </div>
