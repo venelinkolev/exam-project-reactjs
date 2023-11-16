@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import './RecipeCard.css';
 
 export default function RecipeCard(prop) {
-  console.log(prop);
+  //console.log(prop);
   return (
     <div className='recipe-card-main'>
       <div className='recipe-image'>
