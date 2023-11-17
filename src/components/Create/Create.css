@@ -2,15 +2,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: auto;
-    height: 80vh;
+    padding: 4rem;
     background-color: rgb(255, 69, 0, 0.7);
 
 }
 
 .create-recipe {
     padding: 2rem;
-    width: 400px;
+    width: 600px;
     height: auto;
     display: flex;
     flex-direction: column;
