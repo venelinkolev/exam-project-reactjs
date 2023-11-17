@@ -1,0 +1,48 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid gray;
+    border-radius: 1rem;
+    padding: 1rem 0.8rem;
+    /* background-color: rgb(0, 0, 0, 0.1); */
+}
+
+.form-container label {
+    display: block;
+    text-align: start;
+    padding-left: 0.5rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.form-container input {
+    padding: 0.5rem 1rem;
+    border: 2px solid orangered;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+}
+
+.form-container input:hover {
+    border: 2px solid orange;
+}
+
+.recipe-more-info {
+    display: flex;
+}
+
+.row-first,
+.row-second {
+    display: flex;
+}
+
+.form-container .recipe-more-info input {
+    /* width: 130px; */
+}
+
+.prepTime,
+.cookTime,
+.totalTime,
+.servings {
+    /* flex-basis: 150px; */
+}

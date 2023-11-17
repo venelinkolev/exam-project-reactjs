@@ -1,0 +1,28 @@
+.create-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 80vh;
+    background-color: rgb(255, 69, 0, 0.7);
+
+}
+
+.create-recipe {
+    padding: 2rem;
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 1rem;
+    border: 2px solid white;
+    text-align: center;
+    box-shadow: 0 0 0.8rem 0 rgb(0, 0, 0, 0.4);
+}
+
+.create-recipe h1 {
+    color: orangered;
+    text-shadow: 1px 1px rgb(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+}

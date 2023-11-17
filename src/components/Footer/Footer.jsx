@@ -62,9 +62,9 @@ export default function Footer() {
           </section>
           <section className='contact-us'>
             <h2>Контакти</h2>
-            <p>Адрес:</p>
-            <p>Телефон:</p>
-            <p>Е-поща:</p>
+            <p>Адрес: гр. Несебър, ул. Л. Каравелов №24</p>
+            <p>Телефон: +359 0888 123 456</p>
+            <p>Е-поща: venelinkolev@gmail.com</p>
           </section>
         </div>
       </footer>
