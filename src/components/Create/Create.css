@@ -3,8 +3,9 @@
     justify-content: center;
     align-items: center;
     padding: 4rem;
-    background-color: rgb(255, 69, 0, 0.7);
-
+    /* background-color: rgb(255, 69, 0, 0.7); */
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 60, 0, 1) 100%);
 }
 
 .create-recipe {
@@ -24,4 +25,20 @@
     color: orangered;
     text-shadow: 1px 1px rgb(0, 0, 0, 0.5);
     margin-bottom: 2rem;
+}
+
+.create-recipe form>input {
+    margin-top: 1.5rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.5rem;
+    background-color: rgb(40, 40, 40);
+    border: none;
+    color: white;
+    font-family: Nunito, "Helvetica Neue", sans-serif;
+    font-size: 1.2rem;
+}
+
+.create-recipe form>input:hover {
+    cursor: pointer;
+    background-color: orangered;
 }

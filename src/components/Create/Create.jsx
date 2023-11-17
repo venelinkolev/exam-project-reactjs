@@ -11,7 +11,10 @@ export default function Create() {
       <div className='create-container'>
         <div className='create-recipe'>
           <h1>Създай Рецепта</h1>
-          <FormRecipe />
+          <form>
+            <FormRecipe />
+            <input type='submit' value='Създай' />
+          </form>
         </div>
       </div>
     </>

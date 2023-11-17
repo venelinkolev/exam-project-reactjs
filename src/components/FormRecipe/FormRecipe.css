@@ -45,9 +45,18 @@
 .row-first,
 .row-second {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
-.form-container .recipe-more-info input {
-    /* width: 130px; */
+/* .form-container .recipe-more-info input {
+    width: 130px;
+} */
+
+.prepTime,
+.cookTime,
+.totalTime,
+.servings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
