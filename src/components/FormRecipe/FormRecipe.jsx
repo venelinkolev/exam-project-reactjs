@@ -1,6 +1,9 @@
 import './FormRecipe.css';
 
-export default function FormRecipe() {
+export default function FormRecipe({
+  formValues,
+  changeFormHandler,
+}) {
   return (
     <>
       <div className='form-container'>
@@ -10,6 +13,8 @@ export default function FormRecipe() {
           id='recipeName'
           name='recipeName'
           placeholder='Наименование на рецептата'
+          value={formValues.recipeName}
+          onChange={changeFormHandler}
         />
         <label htmlFor='imageUrl'>Зареди снимка:</label>
         <input
@@ -17,6 +22,8 @@ export default function FormRecipe() {
           id='imageUrl'
           name='imageUrl'
           placeholder='http://... или https://...'
+          value={formValues.imageUrl}
+          onChange={changeFormHandler}
         />
 
         <label htmlFor='ingredients'>Наичин на приготвяне(продукти):</label>
@@ -25,6 +32,8 @@ export default function FormRecipe() {
           id='ingredients'
           name='ingredients'
           placeholder='.....'
+          value={formValues.ingredients}
+          onChange={changeFormHandler}
         />
         <div className='recipe-more-info'>
           <div className='row-first'>
@@ -35,6 +44,8 @@ export default function FormRecipe() {
                 id='prepTime'
                 name='prepTime'
                 placeholder='минути'
+                value={formValues.prepTime}
+                onChange={changeFormHandler}
               />
             </div>
             <div className='cookTime'>
@@ -44,6 +55,8 @@ export default function FormRecipe() {
                 id='cookTime'
                 name='cookTime'
                 placeholder='минути'
+                value={formValues.cookTime}
+                onChange={changeFormHandler}
               />
             </div>
           </div>
@@ -55,6 +68,8 @@ export default function FormRecipe() {
                 id='totalTime'
                 name='totalTime'
                 placeholder='минути'
+                value={formValues.totalTime}
+                onChange={changeFormHandler}
               />
             </div>
             <div className='servings'>
@@ -64,6 +79,8 @@ export default function FormRecipe() {
                 id='servings'
                 name='servings'
                 placeholder='бройка'
+                value={formValues.servings}
+                onChange={changeFormHandler}
               />
             </div>
           </div>
