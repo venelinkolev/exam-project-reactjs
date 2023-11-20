@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
 import './Header.css';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext';
 
 export default function Header() {
+  const userContextValues = useContext(UserContext);
+
+  console.log(userContextValues);
+
   return (
     <>
       <header className='header'>

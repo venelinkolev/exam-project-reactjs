@@ -11,7 +11,7 @@ export async function getAllRecipes() {
 }
 
 export async function createReciep(data) {
-  const result = await request.post(`${URL}/new-recipe`);
+  const result = await request.post(`${URL}/new-recipe`, data);
 
   return result;
 }

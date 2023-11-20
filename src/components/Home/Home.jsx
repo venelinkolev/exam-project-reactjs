@@ -3,7 +3,7 @@ import CatalogHomePage from './CatalogHomePage';
 import DayRecipeCard from './DayRecipeCard';
 import './Home.css';
 import { getAllRecipes, getRecipe } from '../../services/recipeServices';
-import useTitleChange from '../../util/useTitleChange';
+import useTitleChange from '../../hooks/useTitleChange';
 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);

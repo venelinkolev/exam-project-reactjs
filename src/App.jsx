@@ -12,10 +12,21 @@ import Create from './components/Create/Create';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Search from './components/Search/Search';
+import { UserContext } from './contexts/UserContext';
 
 function App() {
+  const [userInfo, setUserInfo] = useState({
+    isUser: false,
+    userId: '',
+  });
+
+  const contextValues = {
+    userInfo,
+    setUserInfo,
+  };
+
   return (
-    <>
+    <UserContext.Provider value={contextValues}>
       <div className='site'>
         <Header />
         <div className='routing'>
@@ -37,7 +48,7 @@ function App() {
         </div>
         <Footer />
       </div>
-    </>
+    </UserContext.Provider>
   );
 }
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import useTitleChange from '../../util/useTitleChange';
+import useTitleChange from '../../hooks/useTitleChange';
 import './CatalogPage.css';
 import RecipeCard from './RecipeCard';
 import { getAllRecipes } from '../../services/recipeServices';

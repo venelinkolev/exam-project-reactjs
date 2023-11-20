@@ -1,10 +1,27 @@
+import { useEffect, useState } from 'react';
 import './Login.css';
+import { login } from '../../services/userServices';
+import { useCookies } from 'react-cookie';
 
 export default function Login() {
+  const [userData, setUserData] = useState({
+    email: '',
+    password: '',
+  });
 
-  function loginUser(e) {
+  async function loginUser(e) {
     e.preventDefault();
-    console.log(e);
+    // console.log(userData);
+    await login(userData)
+      .then((result) => console.log(result))
+      .catch((err) => console.log(err.message));
+  }
+
+  function loginChangeHandler(e) {
+    setUserData((state) => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }));
   }
 
   return (
@@ -14,26 +31,26 @@ export default function Login() {
           <h1>Вход потребител</h1>
           <form onSubmit={loginUser}>
             <div className='login-form-container'>
-              <label htmlFor='recipeName'>Заглавие:</label>
+              <label htmlFor='email'>E-mail:</label>
               <input
                 type='text'
-                id='recipeName'
-                name='recipeName'
-                placeholder='Наименование на рецептата'
-                // value={formValues.recipeName}
-                // onChange={changeFormHandler}
+                id='email'
+                name='email'
+                placeholder='example@gmail.com'
+                value={userData.email}
+                onChange={loginChangeHandler}
               />
-              <label htmlFor='imageUrl'>Зареди снимка:</label>
+              <label htmlFor='password'>Парола:</label>
               <input
-                type='text'
-                id='imageUrl'
-                name='imageUrl'
-                placeholder='http://... или https://...'
-                // value={formValues.imageUrl}
-                // onChange={changeFormHandler}
+                type='password'
+                id='password'
+                name='password'
+                placeholder='****'
+                value={userData.password}
+                onChange={loginChangeHandler}
               />
             </div>
-            <input type='submit' value='Създай' />
+            <input type='submit' value='Вход' />
           </form>
         </div>
       </div>

@@ -5,7 +5,9 @@ const options = (data) => {
     options.body = JSON.stringify(data);
     options.headers = {
       'Content-type': 'application/json',
+      Accept: 'application/json',
     };
+    options.credentials = 'include';
   }
 
   return options;

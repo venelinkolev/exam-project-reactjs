@@ -10,7 +10,7 @@
 
 .login-user {
     padding: 2rem;
-    width: 600px;
+    width: 330px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -61,7 +61,7 @@
     font-weight: bold;
     font-size: 1.1rem;
     font-style: italic;
-} 
+}
 
 .login-form-container input {
     padding: 0.5rem 1rem;
