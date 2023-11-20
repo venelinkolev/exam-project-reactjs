@@ -32,21 +32,29 @@ export default function Header() {
             <li>
               <Link to='/search'>Търси</Link>
             </li>
-            <li>
-              <Link to='/create'>Създаване</Link>
-            </li>
-            <li>
-              <Link to='/my-recipes'>Мой Рецепти</Link>
-            </li>
-            <li>
-              <Link to='/login'>Вход</Link>
-            </li>
-            <li>
-              <Link to='/register'>Регистрация</Link>
-            </li>
-            <li>
-              <Link to='/logout'>Изход</Link>
-            </li>
+            {userContextValues.userInfo?.isUser && (
+              <>
+                <li>
+                  <Link to='/create'>Създаване</Link>
+                </li>
+                <li>
+                  <Link to='/my-recipes'>Мой Рецепти</Link>
+                </li>
+                <li>
+                  <Link to='/logout'>Изход</Link>
+                </li>
+              </>
+            )}
+            {!userContextValues.userInfo?.isUser && (
+              <>
+                <li>
+                  <Link to='/login'>Вход</Link>
+                </li>
+                <li>
+                  <Link to='/register'>Регистрация</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </header>

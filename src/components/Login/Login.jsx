@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './Login.css';
 import { login } from '../../services/userServices';
-import { useCookies } from 'react-cookie';
+import { UserContext } from '../../contexts/UserContext';
 
 export default function Login() {
   const [userData, setUserData] = useState({
@@ -9,11 +9,24 @@ export default function Login() {
     password: '',
   });
 
+  const userContextValues = useContext(UserContext);
+
   async function loginUser(e) {
     e.preventDefault();
     // console.log(userData);
     await login(userData)
-      .then((result) => console.log(result))
+      .then((result) => {
+        if (result.message) {
+          // console.log(result.message);
+
+          throw new Error(result.message);
+        }
+
+        userContextValues.userData({
+          isUser: true,
+          userId: result._id,
+        });
+      })
       .catch((err) => console.log(err.message));
   }
 

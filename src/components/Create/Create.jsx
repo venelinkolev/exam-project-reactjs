@@ -15,7 +15,7 @@ export default function Create() {
     servings: '',
   });
 
-  useEffect(() => {}, [formValues]);
+  // useEffect(() => {}, [formValues]);
 
   useTitleChange('Create');
 

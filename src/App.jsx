@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
@@ -20,9 +20,16 @@ function App() {
     userId: '',
   });
 
+  console.log(userInfo);
+  // useEffect(() => {}, [userInfo]);
+
+  function userData(user) {
+    setUserInfo(Object.assign(user));
+  }
+
   const contextValues = {
     userInfo,
-    setUserInfo,
+    userData,
   };
 
   return (
