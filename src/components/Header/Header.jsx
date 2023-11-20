@@ -8,6 +8,17 @@ export default function Header() {
 
   console.log(userContextValues);
 
+  function logout() {
+    if (!userContextValues.userInfo.isUser) {
+      return;
+    }
+
+    userContextValues.userData({
+      isUser: false,
+      userId: '',
+    });
+  }
+
   return (
     <>
       <header className='header'>
