@@ -1,22 +1,36 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
+import { logout } from '../../services/userServices';
 
 export default function Header() {
   const userContextValues = useContext(UserContext);
 
+  const navigate = useNavigate();
+
   console.log(userContextValues);
 
-  function logout() {
+  async function logoutHendler(e) {
+    console.log(e);
+    e.preventDefault();
+
     if (!userContextValues.userInfo.isUser) {
       return;
     }
+
+    console.log('Logout');
 
     userContextValues.userData({
       isUser: false,
       userId: '',
     });
+
+    await logout()
+      .then((result) => console.log(result))
+      .catch((err) => console.log(err));
+
+    navigate('/home');
   }
 
   return (
@@ -52,7 +66,9 @@ export default function Header() {
                   <Link to='/my-recipes'>Мой Рецепти</Link>
                 </li>
                 <li>
-                  <Link to='/logout'>Изход</Link>
+                  <a href='#' onClick={logoutHendler}>
+                    Изход
+                  </a>
                 </li>
               </>
             )}

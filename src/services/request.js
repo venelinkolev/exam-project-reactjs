@@ -8,6 +8,11 @@ const options = (data) => {
       Accept: 'application/json',
     };
     options.credentials = 'include';
+  } else {
+    options.headers = {
+      Accept: 'application/json',
+    };
+    options.credentials = 'include';
   }
 
   return options;
