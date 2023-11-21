@@ -8,14 +8,18 @@
 }
 
 .recipe-name h3 {
-    color: orangered;
-    font-weight: 800;
     text-align: center;
-    text-transform: uppercase;
 }
 
 .card .recipe-name a {
+    color: orangered;
+    font-weight: 800;
+    text-transform: uppercase;
     text-decoration: none;
+}
+
+.card .recipe-name a:hover {
+    text-decoration: underline;
 }
 
 .recipe-picture {

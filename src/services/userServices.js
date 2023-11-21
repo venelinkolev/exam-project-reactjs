@@ -19,5 +19,5 @@ export async function login(userData) {
 export async function logout() {
   const result = await request.post(`${URL}/logout`);
 
-  return result;
+  // return result;
 }

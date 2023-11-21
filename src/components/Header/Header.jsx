@@ -26,9 +26,7 @@ export default function Header() {
       userId: '',
     });
 
-    await logout()
-      .then((result) => console.log(result))
-      .catch((err) => console.log(err));
+    await logout();
 
     navigate('/home');
   }

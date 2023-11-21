@@ -10,6 +10,7 @@ const options = (data) => {
     options.credentials = 'include';
   } else {
     options.headers = {
+      'Content-type': 'application/json',
       Accept: 'application/json',
     };
     options.credentials = 'include';
@@ -23,8 +24,17 @@ const request = async (method, url, data) => {
     ...options(data),
     method,
   });
+  console.log(response);
+
+  if (response.status == 204) {
+    return {};
+  }
 
   const result = await response.json();
+
+  if (!response.ok) {
+    throw result;
+  }
 
   return result;
 };
