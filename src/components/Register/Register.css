@@ -1,0 +1,75 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    /* background-color: rgb(255, 69, 0, 0.7); */
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 60, 0, 1) 100%);
+}
+
+.register-user {
+    padding: 2rem;
+    width: 330px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 1rem;
+    border: 2px solid white;
+    text-align: center;
+    box-shadow: 0 0 0.8rem 0 rgb(0, 0, 0, 0.4);
+}
+
+.register-user h1 {
+    color: orangered;
+    text-shadow: 1px 1px rgb(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+}
+
+.register-user form>input {
+    margin-top: 1.5rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 0.5rem;
+    background-color: rgb(40, 40, 40);
+    border: none;
+    color: white;
+    font-family: Nunito, "Helvetica Neue", sans-serif;
+    font-size: 1.2rem;
+}
+
+.register-user form>input:hover {
+    cursor: pointer;
+    background-color: orangered;
+}
+
+/* Form Login */
+
+.register-form-container {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid gray;
+    border-radius: 1rem;
+    padding: 1rem 0.8rem;
+    /* background-color: rgb(0, 0, 0, 0.1); */
+}
+
+.register-form-container label {
+    display: block;
+    text-align: start;
+    padding-left: 0.5rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.register-form-container input {
+    padding: 0.5rem 1rem;
+    border: 2px solid orangered;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+}
+
+.register-form-container input:hover {
+    border: 2px solid orange;
+}

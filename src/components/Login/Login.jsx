@@ -17,8 +17,6 @@ export default function Login() {
     await login(userData)
       .then((result) => {
         if (result.message) {
-          // console.log(result.message);
-
           throw new Error(result.message);
         }
 
