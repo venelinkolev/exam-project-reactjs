@@ -72,7 +72,7 @@ export default function Register() {
                     type='text'
                     id='firstName'
                     name='firstName'
-                    placeholder='Ivan (only latin letters)'
+                    placeholder='Иван'
                     value={userData.firstName}
                     onChange={registerChangeHandler}
                   />
@@ -83,7 +83,7 @@ export default function Register() {
                     type='text'
                     id='lastName'
                     name='lastName'
-                    placeholder='Ivanov (only latin letters)'
+                    placeholder='Иванов'
                     value={userData.lastName}
                     onChange={registerChangeHandler}
                   />
