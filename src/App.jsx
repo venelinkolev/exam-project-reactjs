@@ -22,7 +22,7 @@ function App() {
     userId: '',
   });
 
-  console.log(userInfo);
+  // console.log(userInfo);
   // useEffect(() => {}, [userInfo]);
 
   function userData(user) {

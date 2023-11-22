@@ -24,7 +24,7 @@ const request = async (method, url, data) => {
     ...options(data),
     method,
   });
-  console.log(response);
+  // console.log(response);
 
   if (response.status == 204) {
     return {};

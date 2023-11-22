@@ -3,6 +3,7 @@ import './Login.css';
 import { login } from '../../services/userServices';
 import { UserContext } from '../../contexts/UserContext';
 import useTitleChange from '../../hooks/useTitleChange';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const [userData, setUserData] = useState({
@@ -11,6 +12,8 @@ export default function Login() {
   });
 
   useTitleChange('Login');
+
+  const navigate = useNavigate();
 
   const userContextValues = useContext(UserContext);
 
@@ -30,6 +33,8 @@ export default function Login() {
         });
       })
       .catch((err) => console.log(err.message));
+
+    navigate('/my-recipes');
   }
 
   function loginChangeHandler(e) {

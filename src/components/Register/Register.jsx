@@ -2,6 +2,8 @@ import { useContext, useState } from 'react';
 import './Register.css';
 import { UserContext } from '../../contexts/UserContext';
 import useTitleChange from '../../hooks/useTitleChange';
+import { register } from '../../services/userServices';
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
   const [userData, setUserData] = useState({
@@ -14,11 +16,47 @@ export default function Register() {
 
   useTitleChange('Register');
 
+  const navigate = useNavigate();
+
   const userContextValues = useContext(UserContext);
 
-  function registerChangeHandler() {}
+  function registerChangeHandler(e) {
+    setUserData((state) => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }));
+  }
 
-  async function registerUser() {}
+  async function registerUser(e) {
+    e.preventDefault();
+
+    const registerData = {
+      firstName: userData.firstName,
+      lastName: userData.lastName,
+      email: userData.email,
+      password: userData.password,
+    };
+
+    // console.log(registerData);
+
+    await register(registerData)
+      .then((result) => {
+        console.log(result);
+
+        userContextValues.userData({
+          userName: `${result.firstName} ${result.lastName}`,
+          isUser: true,
+          userId: result._id,
+        });
+      })
+      .catch((err) => console.log(err));
+
+    navigate('/my-recipes');
+  }
+
+  function passwordCheck(password, rePassword) {
+    return password !== rePassword ? false : true;
+  }
 
   return (
     <>
@@ -34,7 +72,7 @@ export default function Register() {
                     type='text'
                     id='firstName'
                     name='firstName'
-                    placeholder='Иван'
+                    placeholder='Ivan (only latin letters)'
                     value={userData.firstName}
                     onChange={registerChangeHandler}
                   />
@@ -45,7 +83,7 @@ export default function Register() {
                     type='text'
                     id='lastName'
                     name='lastName'
-                    placeholder='Иванов'
+                    placeholder='Ivanov (only latin letters)'
                     value={userData.lastName}
                     onChange={registerChangeHandler}
                   />
