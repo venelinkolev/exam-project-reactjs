@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './Register.css';
+import { UserContext } from '../../contexts/UserContext';
+import useTitleChange from '../../hooks/useTitleChange';
 
 export default function Register() {
   const [userData, setUserData] = useState({
@@ -10,6 +12,10 @@ export default function Register() {
     rePassword: '',
   });
 
+  useTitleChange('Register');
+
+  const userContextValues = useContext(UserContext);
+
   function registerChangeHandler() {}
 
   async function registerUser() {}
@@ -18,9 +24,33 @@ export default function Register() {
     <>
       <div className='register-container'>
         <div className='register-user'>
-          <h1>Вход потребител</h1>
+          <h1>Регистрация потребител</h1>
           <form onSubmit={registerUser}>
             <div className='register-form-container'>
+              <div className='first-last-name'>
+                <div className='first-name'>
+                  <label htmlFor='firstName'>Име:</label>
+                  <input
+                    type='text'
+                    id='firstName'
+                    name='firstName'
+                    placeholder='Иван'
+                    value={userData.firstName}
+                    onChange={registerChangeHandler}
+                  />
+                </div>
+                <div className='last-name'>
+                  <label htmlFor='lastName'>Фамилия:</label>
+                  <input
+                    type='text'
+                    id='lastName'
+                    name='lastName'
+                    placeholder='Иванов'
+                    value={userData.lastName}
+                    onChange={registerChangeHandler}
+                  />
+                </div>
+              </div>
               <label htmlFor='email'>E-mail:</label>
               <input
                 type='text'
@@ -39,8 +69,17 @@ export default function Register() {
                 value={userData.password}
                 onChange={registerChangeHandler}
               />
+              <label htmlFor='rePassword'>Повтори паролата:</label>
+              <input
+                type='password'
+                id='rePassword'
+                name='rePassword'
+                placeholder='****'
+                value={userData.rePassword}
+                onChange={registerChangeHandler}
+              />
             </div>
-            <input type='submit' value='Вход' />
+            <input type='submit' value='Регистрирай' />
           </form>
         </div>
       </div>

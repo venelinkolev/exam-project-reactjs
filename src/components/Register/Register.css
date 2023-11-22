@@ -10,7 +10,7 @@
 
 .register-user {
     padding: 2rem;
-    width: 330px;
+    width: 430px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -52,6 +52,16 @@
     border-radius: 1rem;
     padding: 1rem 0.8rem;
     /* background-color: rgb(0, 0, 0, 0.1); */
+}
+
+.first-last-name {
+    display: flex;
+    justify-content: space-between;
+}
+
+.first-name>input,
+.last-name>input {
+    width: 160px;
 }
 
 .register-form-container label {

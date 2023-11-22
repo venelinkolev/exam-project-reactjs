@@ -10,6 +10,14 @@ export async function getAllRecipes() {
   return result;
 }
 
+export async function getOwnerRecipes(ownerId) {
+  const result = await request.get(URL);
+
+  const ownerRecipes = result.filter((x) => x.userId == ownerId);
+
+  return ownerRecipes;
+}
+
 export async function createReciep(data) {
   const result = await request.post(`${URL}/new-recipe`, data);
 

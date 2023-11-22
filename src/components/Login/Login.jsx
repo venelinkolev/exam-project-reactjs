@@ -2,12 +2,15 @@ import { useContext, useEffect, useState } from 'react';
 import './Login.css';
 import { login } from '../../services/userServices';
 import { UserContext } from '../../contexts/UserContext';
+import useTitleChange from '../../hooks/useTitleChange';
 
 export default function Login() {
   const [userData, setUserData] = useState({
     email: '',
     password: '',
   });
+
+  useTitleChange('Login');
 
   const userContextValues = useContext(UserContext);
 
@@ -21,6 +24,7 @@ export default function Login() {
         }
 
         userContextValues.userData({
+          userName: `${result.firstName} ${result.lastName}`,
           isUser: true,
           userId: result._id,
         });

@@ -13,9 +13,11 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Search from './components/Search/Search';
 import { UserContext } from './contexts/UserContext';
+import MyRecipes from './components/MyRecipes/MyRecipes';
 
 function App() {
   const [userInfo, setUserInfo] = useState({
+    userName: '',
     isUser: false,
     userId: '',
   });
@@ -46,6 +48,7 @@ function App() {
             <Route path='/catalog' element={<CatalogPage />} />
             <Route path='/catalog/:recipeId/details' element={<Details />} />
             <Route path='/catalog/:recipeId/edit' element={<Edit />} />
+            <Route path='/my-recipes' element={<MyRecipes />} />
             <Route path='/create' element={<Create />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
