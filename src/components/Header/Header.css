@@ -105,10 +105,12 @@
 .nav-menu .profil .profil-info>li a {
     display: block;
     font-size: 1.1rem;
-    min-width: 150px;
+    min-width: 160px;
     text-align: end;
     padding: 0.5rem 0.8rem;
     background-color: white;
+    border-right: 3px solid orangered;
+    border-left: 3px solid orangered;
     color: black;
 
 }
