@@ -12,10 +12,10 @@ const userSchema = new mongoose.Schema(
       minlength: [2, 'Username should be at least 2 characters'],
       validate: {
         validator: function (v) {
-          return /[a-zA-Z0-9]+/g.test(v);
+          return /[a-zA-Z0-9\u0400-\u04FF]+/g.test(v);
         },
         message: (props) =>
-          `${props.value} must contains only latin letters and digits!`,
+          `${props.value} must contains only letters and digits!`,
       },
     },
     lastName: {
@@ -24,10 +24,10 @@ const userSchema = new mongoose.Schema(
       minlength: [2, 'Username should be at least 2 characters'],
       validate: {
         validator: function (v) {
-          return /[a-zA-Z0-9]+/g.test(v);
+          return /[a-zA-Z0-9\u0400-\u04FF]+/g.test(v);
         },
         message: (props) =>
-          `${props.value} must contains only latin letters and digits!`,
+          `${props.value} must contains only letters and digits!`,
       },
     },
     // tel: {
