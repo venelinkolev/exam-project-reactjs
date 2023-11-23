@@ -43,11 +43,15 @@ export default function Register() {
       .then((result) => {
         console.log(result);
 
-        userContextValues.userData({
+        const userDataToken = {
           userName: `${result.firstName} ${result.lastName}`,
           isUser: true,
           userId: result._id,
-        });
+        };
+
+        localStorage.setItem('authToken', JSON.stringify(userDataToken));
+
+        userContextValues.userData(userDataToken);
       })
       .catch((err) => console.log(err));
 

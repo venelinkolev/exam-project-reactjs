@@ -14,7 +14,7 @@ export default function MyRecipes() {
 
   useEffect(() => {
     getOwnerRecipes(ownerId).then((ownerRecipes) => {
-      console.log(ownerRecipes);
+      //console.log(ownerRecipes);
       setRecipes(ownerRecipes);
     });
   }, []);

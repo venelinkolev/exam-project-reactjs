@@ -16,10 +16,18 @@ import { UserContext } from './contexts/UserContext';
 import MyRecipes from './components/MyRecipes/MyRecipes';
 
 function App() {
-  const [userInfo, setUserInfo] = useState({
-    userName: '',
-    isUser: false,
-    userId: '',
+  const [userInfo, setUserInfo] = useState(() => {
+    const localStorageState = localStorage.getItem('authToken');
+
+    if (localStorageState) {
+      return JSON.parse(localStorageState);
+    }
+
+    return {
+      userName: '',
+      isUser: false,
+      userId: '',
+    };
   });
 
   // console.log(userInfo);

@@ -22,9 +22,12 @@ export default function Header() {
     console.log('Logout');
 
     userContextValues.userData({
+      userName: '',
       isUser: false,
       userId: '',
     });
+
+    localStorage.removeItem('authToken');
 
     await logout();
 
@@ -64,7 +67,7 @@ export default function Header() {
                   <Link to='/my-recipes'>Мой Рецепти</Link>
                 </li>
                 <li>
-                  <div class='profil'>
+                  <div className='profil'>
                     <Link to={'/profil'}>
                       <svg
                         xmlns='http://www.w3.org/2000/svg'

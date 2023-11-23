@@ -26,11 +26,17 @@ export default function Login() {
           throw new Error(result.message);
         }
 
-        userContextValues.userData({
+        const userDataToken = {
           userName: `${result.firstName} ${result.lastName}`,
           isUser: true,
           userId: result._id,
-        });
+        };
+
+        // console.log();
+
+        localStorage.setItem('authToken', JSON.stringify(userDataToken));
+
+        userContextValues.userData(userDataToken);
       })
       .catch((err) => console.log(err.message));
 
