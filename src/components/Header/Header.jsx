@@ -12,7 +12,7 @@ export default function Header() {
   console.log(userContextValues);
 
   async function logoutHendler(e) {
-    console.log(e);
+    // console.log(e);
     e.preventDefault();
 
     if (!userContextValues.userInfo.isUser) {

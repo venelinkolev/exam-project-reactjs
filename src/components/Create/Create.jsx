@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import useTitleChange from '../../hooks/useTitleChange';
 import './Create.css';
 import FormRecipe from '../FormRecipe/FormRecipe';
@@ -14,8 +14,6 @@ export default function Create() {
     totalTime: '',
     servings: '',
   });
-
-  // useEffect(() => {}, [formValues]);
 
   useTitleChange('Create');
 
