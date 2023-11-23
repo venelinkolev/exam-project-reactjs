@@ -57,8 +57,8 @@ export default function Edit() {
 
   return (
     <>
-      <div className='create-container'>
-        <div className='create-recipe'>
+      <div className='edit-container'>
+        <div className='edit-recipe'>
           <h1>Редактирай Рецепта</h1>
           <form onSubmit={recipeEdit}>
             <FormRecipe
