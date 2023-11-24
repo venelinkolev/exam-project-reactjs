@@ -38,17 +38,40 @@ export default function Details() {
       return;
     }
   }
+
+  function transform(string) {
+    return string.split('\n');
+  }
+
   return (
     <>
       <div className='details-container'>
         <h1>{recipe.recipeName}</h1>
-        <div className='recipe-details'>
+        <div className='recipe-details container'>
           <div className='recipe-details-image'>
             <img src={recipe.imageUrl} alt={recipe.recipeName} />
           </div>
           <div className='recipe-info'>
-            <div className='recipe-details-tabel'></div>
-            <div className='recipe-details-ingredients'></div>
+            <div className='recipe-details-ingredients'>
+              <h2>Наичин на приготвяне(продукти)</h2>
+              {/* {transform(recipe.ingredients).map((line, index) => (
+                <p key={index}>{line}</p>
+              ))} */}
+              <p>{recipe.ingredients}</p>
+            </div>
+            <div className='recipe-details-tabel'>
+              <table>
+                <thead>
+                  <th>Време за приготвяне</th>
+                  <th>Време за готвене</th>
+                  <th>Общо време</th>
+                  <th>Порции</th>
+                </thead>
+                <tbody>
+                  <tr></tr>
+                </tbody>
+              </table>
+            </div>
             <div className='recipe-details-btn'>
               <Link to={'/catalog'}>Каталог</Link>
               <Link to={`/catalog/${recipe._id}/edit`}>Редактирай</Link>
