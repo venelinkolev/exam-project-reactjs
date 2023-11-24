@@ -25,14 +25,26 @@
     background-color: rgb(255, 255, 255, 0.4);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 2rem;
 }
 
+.image-table {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 45%;
+    /* align-items: center; */
+    justify-content: space-between;
+    gap: 1rem;
+}
+
 .recipe-details-image {
-    flex: auto;
+    /* display: flex;
+    flex-direction: column; */
+    /* flex: 1 0 45%; */
     /* width: 10rem; */
     aspect-ratio: 4/3;
-    /* height: 30rem; */
+    /* height: 25rem; */
     overflow: hidden;
     border-radius: 0.8rem;
     box-shadow: 0 0 0.8rem 0 rgb(0, 0, 0, 0.5);
@@ -48,8 +60,40 @@
     transform: translate(-50%, -50%);
 }
 
+.recipe-details-table {
+    display: flex;
+    justify-content: center;
+}
+
+.recipe-details-table table {
+    background-color: rgb(255, 255, 255, 0.4);
+    border: 1px solid orangered;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    width: 100%;
+}
+
+.recipe-details-table table th {
+    color: orangered;
+    padding: 0.2rem 0.2rem;
+    text-decoration: underline;
+}
+
+.recipe-details-table table thead tr th {
+    font-weight: 800;
+}
+
+.recipe-details-table table tbody tr:first-child td {
+    font-weight: bold;
+}
+
+.recipe-details-table table tbody tr:nth-child(2) td {
+    font-style: italic;
+}
+
 .recipe-info {
-    flex-basis: 50%;
+    flex: 1 1 45%;
     display: flex;
     flex-direction: column;
     align-items: center;
