@@ -1,6 +1,8 @@
 import './FormRecipe.css';
 
 export default function FormRecipe({
+  formValidatorErrors,
+  formValidator,
   formValues,
   changeFormHandler,
 }) {
@@ -15,7 +17,11 @@ export default function FormRecipe({
           placeholder='Наименование на рецептата'
           value={formValues.recipeName}
           onChange={changeFormHandler}
+          onBlur={formValidator}
         />
+        {formValidatorErrors.recipeNameErr && (
+          <p className='validatorError'>{formValidatorErrors.recipeNameErr}</p>
+        )}
         <label htmlFor='imageUrl'>Зареди снимка:</label>
         <input
           type='text'
@@ -24,8 +30,11 @@ export default function FormRecipe({
           placeholder='http://... или https://...'
           value={formValues.imageUrl}
           onChange={changeFormHandler}
+          onBlur={formValidator}
         />
-
+        {formValidatorErrors.imageUrlErr && (
+          <p className='validatorError'>{formValidatorErrors.imageUrlErr}</p>
+        )}
         <label htmlFor='ingredients'>Наичин на приготвяне(продукти):</label>
         <textarea
           type='text'
@@ -34,7 +43,11 @@ export default function FormRecipe({
           placeholder='.....'
           value={formValues.ingredients}
           onChange={changeFormHandler}
+          onBlur={formValidator}
         />
+        {formValidatorErrors.ingredientsErr && (
+          <p className='validatorError'>{formValidatorErrors.ingredientsErr}</p>
+        )}
         <div className='recipe-more-info'>
           <div className='row-first'>
             <div className='prepTime'>
@@ -46,7 +59,13 @@ export default function FormRecipe({
                 placeholder='минути'
                 value={formValues.prepTime}
                 onChange={changeFormHandler}
+                onBlur={formValidator}
               />
+              {formValidatorErrors.prepTimeErr && (
+                <p className='validatorError'>
+                  {formValidatorErrors.prepTimeErr}
+                </p>
+              )}
             </div>
             <div className='cookTime'>
               <label htmlFor='cookTime'>Време за готвене:</label>
@@ -57,7 +76,13 @@ export default function FormRecipe({
                 placeholder='минути'
                 value={formValues.cookTime}
                 onChange={changeFormHandler}
+                onBlur={formValidator}
               />
+              {formValidatorErrors.cookTimeErr && (
+                <p className='validatorError'>
+                  {formValidatorErrors.cookTimeErr}
+                </p>
+              )}
             </div>
           </div>
           <div className='row-second'>
@@ -70,7 +95,13 @@ export default function FormRecipe({
                 placeholder='минути'
                 value={formValues.totalTime}
                 onChange={changeFormHandler}
+                onBlur={formValidator}
               />
+              {formValidatorErrors.totalTimeErr && (
+                <p className='validatorError'>
+                  {formValidatorErrors.totalTimeErr}
+                </p>
+              )}
             </div>
             <div className='servings'>
               <label htmlFor='servings'>Порции:</label>
@@ -81,7 +112,13 @@ export default function FormRecipe({
                 placeholder='бройка'
                 value={formValues.servings}
                 onChange={changeFormHandler}
+                onBlur={formValidator}
               />
+              {formValidatorErrors.servingsErr && (
+                <p className='validatorError'>
+                  {formValidatorErrors.servingsErr}
+                </p>
+              )}
             </div>
           </div>
         </div>

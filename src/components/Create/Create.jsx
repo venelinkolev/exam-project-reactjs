@@ -16,6 +16,16 @@ export default function Create() {
     servings: '',
   });
 
+  const [formValidatorErrors, setFormValidatorErrors] = useState({
+    recipeNameErr: '',
+    imageUrlErr: '',
+    ingredientsErr: '',
+    prepTimeErr: '',
+    cookTimeErr: '',
+    totalTimeErr: '',
+    servingsErr: '',
+  });
+
   useTitleChange('Create');
 
   const navigate = useNavigate();
@@ -52,6 +62,41 @@ export default function Create() {
     // console.log(formValues)
     // console.log(e);
   }
+
+  function formValidator(e) {
+    console.log(e.target.name);
+    // if (
+    //   formValues.recipeName === '' ||
+    //   formValues.imageUrl === '' ||
+    //   formValues.ingredients === '' ||
+    //   formValues.prepTime === '' ||
+    //   formValues.cookTime === '' ||
+    //   formValues.totalTime === '' ||
+    //   formValues.servings === ''
+    // )
+    //   return setFormValidatorErrors((state) => ({
+    //     ...state,
+    //   }));
+    // 'Полето е задължително!';
+    emptyField(e.target.name);
+
+    function emptyField(fieldName) {
+      let field = fieldName + 'Err';
+      // console.log(field);
+
+      if (formValues[fieldName] === '') {
+        setFormValidatorErrors((state) => ({
+          ...state,
+          [field]: 'Полето е задължително!',
+        }));
+      } else {
+        setFormValidatorErrors((state) => ({
+          ...state,
+          [field]: '',
+        }));
+      }
+    }
+  }
   return (
     <>
       <div className='create-container'>
@@ -59,6 +104,8 @@ export default function Create() {
           <h1>Създай Рецепта</h1>
           <form onSubmit={createNewRecipe}>
             <FormRecipe
+              formValidatorErrors={formValidatorErrors}
+              formValidator={formValidator}
               formValues={formValues}
               changeFormHandler={changeFormHandler}
             />
