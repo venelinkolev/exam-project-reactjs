@@ -3,6 +3,7 @@ import useTitleChange from '../../hooks/useTitleChange';
 import './Create.css';
 import FormRecipe from '../FormRecipe/FormRecipe';
 import { createReciep } from '../../services/recipeServices';
+import { useNavigate } from 'react-router-dom';
 
 export default function Create() {
   const [formValues, setFormValues] = useState({
@@ -17,6 +18,8 @@ export default function Create() {
 
   useTitleChange('Create');
 
+  const navigate = useNavigate();
+
   function changeFormHandler(e) {
     // console.log('Change')
     setFormValues((state) => ({
@@ -25,7 +28,7 @@ export default function Create() {
     }));
   }
 
-  function createRecipe(e) {
+  function createNewRecipe(e) {
     e.preventDefault();
 
     createReciep(formValues)
@@ -36,6 +39,16 @@ export default function Create() {
         console.log(err);
       });
 
+    setFormValues({
+      recipeName: '',
+      imageUrl: '',
+      ingredients: '',
+      prepTime: '',
+      cookTime: '',
+      totalTime: '',
+      servings: '',
+    });
+    // navigate('/my-recipes');
     // console.log(formValues)
     // console.log(e);
   }
@@ -44,7 +57,7 @@ export default function Create() {
       <div className='create-container'>
         <div className='create-recipe'>
           <h1>Създай Рецепта</h1>
-          <form onSubmit={createRecipe}>
+          <form onSubmit={createNewRecipe}>
             <FormRecipe
               formValues={formValues}
               changeFormHandler={changeFormHandler}

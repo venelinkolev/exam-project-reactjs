@@ -43,6 +43,20 @@
     background-color: orangered;
 }
 
+.register-user>p {
+    margin-top: 1rem;
+}
+
+.register-user>p a {
+    color: orangered;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register-user>p a:hover {
+    text-decoration: underline;
+}
+
 /* Form Login */
 
 .register-form-container {

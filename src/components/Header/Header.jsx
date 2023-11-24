@@ -19,7 +19,7 @@ export default function Header() {
       return;
     }
 
-    console.log('Logout');
+    //console.log('Logout');
 
     userContextValues.userData({
       userName: '',
@@ -84,9 +84,9 @@ export default function Header() {
                         </Link>
                       </li>
                       <li>
-                        <a href='#' onClick={logoutHendler}>
+                        <Link to={'/home'} onClick={logoutHendler}>
                           Изход
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>

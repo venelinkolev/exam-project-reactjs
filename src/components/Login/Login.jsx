@@ -3,7 +3,7 @@ import './Login.css';
 import { login } from '../../services/userServices';
 import { UserContext } from '../../contexts/UserContext';
 import useTitleChange from '../../hooks/useTitleChange';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const [userData, setUserData] = useState({
@@ -78,6 +78,9 @@ export default function Login() {
             </div>
             <input type='submit' value='Вход' />
           </form>
+          <p>
+            Нямате още регистрация? <Link to={'/register'}>Регистрация</Link>
+          </p>
         </div>
       </div>
     </>

@@ -43,6 +43,21 @@
     background-color: orangered;
 }
 
+.login-user>p {
+    margin-top: 1rem;
+}
+
+.login-user>p a {
+    color: orangered;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-user>p a:hover {
+    text-decoration: underline;
+}
+
+
 /* Form Login */
 
 .login-form-container {

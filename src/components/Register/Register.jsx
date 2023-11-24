@@ -3,7 +3,7 @@ import './Register.css';
 import { UserContext } from '../../contexts/UserContext';
 import useTitleChange from '../../hooks/useTitleChange';
 import { register } from '../../services/userServices';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Register() {
   const [userData, setUserData] = useState({
@@ -123,6 +123,9 @@ export default function Register() {
             </div>
             <input type='submit' value='Регистрирай' />
           </form>
+          <p>
+            Имате вече регистрация? <Link to={'/login'}>Вход</Link>
+          </p>
         </div>
       </div>
     </>

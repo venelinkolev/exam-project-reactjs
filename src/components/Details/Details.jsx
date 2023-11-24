@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import useTitleChange from '../../hooks/useTitleChange';
 import './Details.css';
 import { getRecipe, removeRecipe } from '../../services/recipeServices';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { UserContext } from '../../contexts/UserContext';
 
 export default function Details() {
   const [recipe, setRecipe] = useState({
@@ -14,25 +15,37 @@ export default function Details() {
     cookTime: '',
     totalTime: '',
     servings: '',
+    userId: '',
   });
 
   useTitleChange('Details');
+
+  const navigate = useNavigate();
+
+  const userContextValues = useContext(UserContext);
 
   const { recipeId } = useParams();
 
   useEffect(() => {
     getRecipe(recipeId)
       .then((recipe) => {
-        console.log(recipe);
+        //console.log(recipe);
         setRecipe(recipe[0]);
       })
       .catch((err) => console.log(err));
   }, [recipeId]);
 
+  // console.log(userContextValues.userInfo.userId, recipe.userId);
+  const isOwnerRecipe = userContextValues.userInfo.userId === recipe.userId;
+  // console.log(isOwnerRecipe);
+
   async function deleteRecipe(recipeId) {
     if (window.confirm('Искате ли да изтриете рецептата?')) {
       await removeRecipe(recipe._id)
-        .then((result) => console.log(result))
+        .then((result) => {
+          //console.log(result);
+          navigate('/my-recipes');
+        })
         .catch((err) => console.log(err));
     } else {
       return;
@@ -89,8 +102,12 @@ export default function Details() {
             </div>
             <div className='recipe-details-btn'>
               <Link to={'/catalog'}>Каталог</Link>
-              <Link to={`/catalog/${recipe._id}/edit`}>Редактирай</Link>
-              <Link onClick={deleteRecipe}>Изтрий</Link>
+              {isOwnerRecipe && (
+                <>
+                  <Link to={`/catalog/${recipe._id}/edit`}>Редактирай</Link>
+                  <Link onClick={deleteRecipe}>Изтрий</Link>
+                </>
+              )}
             </div>
           </div>
         </div>
