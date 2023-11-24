@@ -30,7 +30,7 @@ export async function getRecipe(recipeId) {
   return result;
 }
 
-export async function deleteRecipe(recipeId) {
+export async function removeRecipe(recipeId) {
   const result = await request.remove(`${URL}/${recipeId}/delete`);
 
   return result;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import useTitleChange from '../../hooks/useTitleChange';
 import './Details.css';
-import { getRecipe } from '../../services/recipeServices';
+import { getRecipe, removeRecipe } from '../../services/recipeServices';
 import { Link, useParams } from 'react-router-dom';
 
 export default function Details() {
@@ -28,6 +28,16 @@ export default function Details() {
       })
       .catch((err) => console.log(err));
   }, [recipeId]);
+
+  async function deleteRecipe(recipeId) {
+    if (window.confirm('Искате ли да изтриете рецептата?')) {
+      await removeRecipe(recipe._id)
+        .then((result) => console.log(result))
+        .catch((err) => console.log(err));
+    } else {
+      return;
+    }
+  }
   return (
     <>
       <div className='details-container'>
@@ -40,9 +50,9 @@ export default function Details() {
             <div className='recipe-details-tabel'></div>
             <div className='recipe-details-ingredients'></div>
             <div className='recipe-details-btn'>
-              <Link>Каталог</Link>
+              <Link to={'/catalog'}>Каталог</Link>
               <Link to={`/catalog/${recipe._id}/edit`}>Редактирай</Link>
-              <Link>Изтрий</Link>
+              <Link onClick={deleteRecipe}>Изтрий</Link>
             </div>
           </div>
         </div>
