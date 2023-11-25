@@ -1,4 +1,5 @@
 import useTitleChange from '../../hooks/useTitleChange';
+import GoToTop from '../../util/GoToTop';
 import './Search.css';
 
 export default function Search() {
@@ -6,6 +7,7 @@ export default function Search() {
   return (
     <>
       <h1>Search</h1>
+      <GoToTop />
     </>
   );
 }

@@ -4,6 +4,7 @@ import './Create.css';
 import FormRecipe from '../FormRecipe/FormRecipe';
 import { createReciep } from '../../services/recipeServices';
 import { useNavigate } from 'react-router-dom';
+import GoToTop from '../../util/GoToTop';
 
 export default function Create() {
   const [formValues, setFormValues] = useState({
@@ -113,6 +114,7 @@ export default function Create() {
           </form>
         </div>
       </div>
+      <GoToTop />
     </>
   );
 }

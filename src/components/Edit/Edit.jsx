@@ -5,6 +5,7 @@ import FormRecipe from '../FormRecipe/FormRecipe';
 import { getRecipe, editRecipe } from '../../services/recipeServices';
 import './Edit.css';
 import { useNavigate, useParams } from 'react-router-dom';
+import GoToTop from '../../util/GoToTop';
 
 export default function Edit() {
   const [formValues, setFormValues] = useState({
@@ -69,6 +70,7 @@ export default function Edit() {
           </form>
         </div>
       </div>
+      <GoToTop />;
     </>
   );
 }

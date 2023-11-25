@@ -4,6 +4,7 @@ import { login } from '../../services/userServices';
 import { UserContext } from '../../contexts/UserContext';
 import useTitleChange from '../../hooks/useTitleChange';
 import { Link, useNavigate } from 'react-router-dom';
+import GoToTop from '../../util/GoToTop';
 
 export default function Login() {
   const [userData, setUserData] = useState({
@@ -83,6 +84,7 @@ export default function Login() {
           </p>
         </div>
       </div>
+      <GoToTop />
     </>
   );
 }

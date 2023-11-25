@@ -12,7 +12,9 @@ export default function ReciepNameAndPicture(prop) {
           </h3>
         </div>
         <div className='recipe-picture'>
-          <img src={prop.imageUrl} alt={prop.recipeName} />
+          <Link to={`/catalog/${prop._id}/details`}>
+            <img src={prop.imageUrl} alt={prop.recipeName} />
+          </Link>
         </div>
       </div>
     </>

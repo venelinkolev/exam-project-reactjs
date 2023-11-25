@@ -4,6 +4,7 @@ import DayRecipeCard from './DayRecipeCard';
 import './Home.css';
 import { getAllRecipes, getRecipe } from '../../services/recipeServices';
 import useTitleChange from '../../hooks/useTitleChange';
+import GoToTop from '../../util/GoToTop';
 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
@@ -80,6 +81,7 @@ export default function Home() {
       </section>
       <hr />
       <section className='top-recipes-home-page'></section>
+      <GoToTop />
     </>
   );
 }

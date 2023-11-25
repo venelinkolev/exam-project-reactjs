@@ -4,6 +4,7 @@ import './Details.css';
 import { getRecipe, removeRecipe } from '../../services/recipeServices';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
+import GoToTop from '../../util/GoToTop';
 
 export default function Details() {
   const [recipe, setRecipe] = useState({
@@ -112,6 +113,7 @@ export default function Details() {
           </div>
         </div>
       </div>
+      <GoToTop />
     </>
   );
 }

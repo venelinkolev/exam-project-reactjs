@@ -4,6 +4,7 @@ import { UserContext } from '../../contexts/UserContext';
 import useTitleChange from '../../hooks/useTitleChange';
 import { register } from '../../services/userServices';
 import { Link, useNavigate } from 'react-router-dom';
+import GoToTop from '../../util/GoToTop';
 
 export default function Register() {
   const [userData, setUserData] = useState({
@@ -128,6 +129,7 @@ export default function Register() {
           </p>
         </div>
       </div>
+      <GoToTop />
     </>
   );
 }
