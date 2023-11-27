@@ -16,15 +16,6 @@ export default function Edit() {
     formValidator,
     isDisabled,
   } = useFormValidator();
-  // const [formValues, setFormValues] = useState({
-  //   recipeName: '',
-  //   imageUrl: '',
-  //   ingredients: '',
-  //   prepTime: '',
-  //   cookTime: '',
-  //   totalTime: '',
-  //   servings: '',
-  // });
 
   const { recipeId } = useParams();
   // console.log(recipeId);
