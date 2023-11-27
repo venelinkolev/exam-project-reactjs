@@ -11,7 +11,7 @@ export default function PageNotFound() {
             className='video'
             poster='https://knife.media/wp-content/themes/knife/assets/images/poster-error.jpg'
             autoPlay
-            preload
+            preload=''
             loop
             muted
           >
@@ -25,7 +25,7 @@ export default function PageNotFound() {
             <h1>Nothing found</h1>
             <p>
               Better go to the
-              <Link to='/'> Main page</Link>
+              <Link to='/home'> Main page</Link>
               <br />
               and read something fresh.
             </p>
