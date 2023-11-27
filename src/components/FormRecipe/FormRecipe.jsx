@@ -53,7 +53,7 @@ export default function FormRecipe({
             <div className='prepTime'>
               <label htmlFor='prepTime'>Време за приготвяне:</label>
               <input
-                type='text'
+                type='number'
                 id='prepTime'
                 name='prepTime'
                 placeholder='минути'
@@ -70,7 +70,7 @@ export default function FormRecipe({
             <div className='cookTime'>
               <label htmlFor='cookTime'>Време за готвене:</label>
               <input
-                type='text'
+                type='number'
                 id='cookTime'
                 name='cookTime'
                 placeholder='минути'
@@ -89,7 +89,7 @@ export default function FormRecipe({
             <div className='totalTime'>
               <label htmlFor='totalTime'>Общо време:</label>
               <input
-                type='text'
+                type='number'
                 id='totalTime'
                 name='totalTime'
                 placeholder='минути'
@@ -106,7 +106,7 @@ export default function FormRecipe({
             <div className='servings'>
               <label htmlFor='servings'>Порции:</label>
               <input
-                type='text'
+                type='number'
                 id='servings'
                 name='servings'
                 placeholder='бройка'

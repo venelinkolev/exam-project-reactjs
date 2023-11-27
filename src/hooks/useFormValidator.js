@@ -93,6 +93,7 @@ export default function useFormValidator() {
         break;
 
       case 'prepTime':
+        console.log(Number(formValues[currentFieldName]));
         if (formValues[currentFieldName].length == 0) {
           setFormValidatorErrors((state) => ({
             ...state,
@@ -101,9 +102,16 @@ export default function useFormValidator() {
         } else if (Number(formValues[currentFieldName]) < 1) {
           setFormValidatorErrors((state) => ({
             ...state,
-            [currentFieldNameErr]: 'Времето не може да е 0 минути.',
+            [currentFieldNameErr]: 'Минимално време 1 минута.',
           }));
-        } else {
+        }
+        // else if (!Number(formValues[currentFieldName])) {
+        //   setFormValidatorErrors((state) => ({
+        //     ...state,
+        //     [currentFieldNameErr]: `"${formValues[currentFieldName]}" не е цифра.`,
+        //   }));
+        // }
+        else {
           setFormValidatorErrors((state) => ({
             ...state,
             [currentFieldNameErr]: '',
@@ -120,7 +128,7 @@ export default function useFormValidator() {
         } else if (Number(formValues[currentFieldName]) < 1) {
           setFormValidatorErrors((state) => ({
             ...state,
-            [currentFieldNameErr]: 'Времето не може да е 0 минути.',
+            [currentFieldNameErr]: 'Минимално време 1 минута.',
           }));
         } else {
           setFormValidatorErrors((state) => ({
@@ -139,7 +147,7 @@ export default function useFormValidator() {
         } else if (Number(formValues[currentFieldName]) < 1) {
           setFormValidatorErrors((state) => ({
             ...state,
-            [currentFieldNameErr]: 'Времето не може да е 0 минути.',
+            [currentFieldNameErr]: 'Минимално време 1 минута.',
           }));
         } else {
           setFormValidatorErrors((state) => ({
@@ -158,7 +166,7 @@ export default function useFormValidator() {
         } else if (Number(formValues[currentFieldName]) < 1) {
           setFormValidatorErrors((state) => ({
             ...state,
-            [currentFieldNameErr]: 'Порцията трябва да е поне една.',
+            [currentFieldNameErr]: 'Поне една проция.',
           }));
         } else {
           setFormValidatorErrors((state) => ({

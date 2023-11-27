@@ -23,7 +23,7 @@ export default function Edit() {
 
   useEffect(() => {
     getRecipe(recipeId).then((result) => {
-      console.log(result);
+      // console.log(result);
       setFormValues(result[0]);
     });
   }, [recipeId]);
