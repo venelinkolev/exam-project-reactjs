@@ -5,15 +5,23 @@ import useTitleChange from '../../hooks/useTitleChange';
 import { register } from '../../services/userServices';
 import { Link, useNavigate } from 'react-router-dom';
 import GoToTop from '../../util/GoToTop';
+import useAuthFormValidator from '../../hooks/useAuthFormValidator';
 
 export default function Register() {
-  const [userData, setUserData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    rePassword: '',
-  });
+  const {
+    userData,
+    setUserData,
+    formValidatorErrors,
+    formValidator,
+    isDisabled,
+  } = useAuthFormValidator();
+  // const [userData, setUserData] = useState({
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   password: '',
+  //   rePassword: '',
+  // });
 
   useTitleChange('Register');
 
@@ -59,9 +67,9 @@ export default function Register() {
     navigate('/my-recipes');
   }
 
-  function passwordCheck(password, rePassword) {
-    return password !== rePassword ? false : true;
-  }
+  // function passwordCheck(password, rePassword) {
+  //   return password !== rePassword ? false : true;
+  // }
 
   return (
     <>
@@ -80,6 +88,7 @@ export default function Register() {
                     placeholder='Иван'
                     value={userData.firstName}
                     onChange={registerChangeHandler}
+                    onBlur={formValidator}
                   />
                 </div>
                 <div className='last-name'>
@@ -91,9 +100,18 @@ export default function Register() {
                     placeholder='Иванов'
                     value={userData.lastName}
                     onChange={registerChangeHandler}
+                    onBlur={formValidator}
                   />
                 </div>
               </div>
+              {(formValidatorErrors.firstNameErr ||
+                formValidatorErrors.lastNameErr) && (
+                <p className='validatorError'>
+                  {formValidatorErrors.firstNameErr +
+                    ' ' +
+                    formValidatorErrors.lastNameErr}
+                </p>
+              )}
               <label htmlFor='email'>E-mail:</label>
               <input
                 type='text'
@@ -102,7 +120,11 @@ export default function Register() {
                 placeholder='example@gmail.com'
                 value={userData.email}
                 onChange={registerChangeHandler}
+                onBlur={formValidator}
               />
+              {formValidatorErrors.emailErr && (
+                <p className='validatorError'>{formValidatorErrors.emailErr}</p>
+              )}
               <label htmlFor='password'>Парола:</label>
               <input
                 type='password'
@@ -111,7 +133,13 @@ export default function Register() {
                 placeholder='****'
                 value={userData.password}
                 onChange={registerChangeHandler}
+                onBlur={formValidator}
               />
+              {formValidatorErrors.passwordErr && (
+                <p className='validatorError'>
+                  {formValidatorErrors.passwordErr}
+                </p>
+              )}
               <label htmlFor='rePassword'>Повтори паролата:</label>
               <input
                 type='password'
@@ -120,9 +148,15 @@ export default function Register() {
                 placeholder='****'
                 value={userData.rePassword}
                 onChange={registerChangeHandler}
+                onBlur={formValidator}
               />
+              {formValidatorErrors.rePasswordErr && (
+                <p className='validatorError'>
+                  {formValidatorErrors.rePasswordErr}
+                </p>
+              )}
             </div>
-            <input type='submit' value='Регистрирай' />
+            <input type='submit' disabled={isDisabled} value='Регистрирай' />
           </form>
           <p>
             Имате вече регистрация? <Link to={'/login'}>Вход</Link>

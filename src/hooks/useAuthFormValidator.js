@@ -24,108 +24,118 @@ export default function useAuthFormValidator() {
     let currentFieldNameErr = currentFieldName + 'Err';
 
     console.log(currentFieldName);
+
+    switch (currentFieldName) {
+      case 'firstName':
+        if (userData[currentFieldName].length == 0) {
+          setFormValidatorErrors((state) => ({
+            ...state,
+            [currentFieldNameErr]: 'Полето е задължително!',
+          }));
+        } else if (userData[currentFieldName].length < 2) {
+          setFormValidatorErrors((state) => ({
+            ...state,
+            [currentFieldNameErr]: 'Името трябва да е минимум 2 символа.',
+          }));
+        } else {
+          setFormValidatorErrors((state) => ({
+            ...state,
+            [currentFieldNameErr]: '',
+          }));
+        }
+
+        break;
+
+      case 'lastName':
+        if (userData[currentFieldName].length == 0) {
+          setFormValidatorErrors((state) => ({
+            ...state,
+            [currentFieldNameErr]: 'Полето е задължително!',
+          }));
+        } else if (userData[currentFieldName].length < 3) {
+          setFormValidatorErrors((state) => ({
+            ...state,
+            [currentFieldNameErr]: 'Фамилията трябва да е минимум 3 символа.',
+          }));
+        } else {
+          setFormValidatorErrors((state) => ({
+            ...state,
+            [currentFieldNameErr]: '',
+          }));
+        }
+
+        break;
+
+      case 'email':
+        if (userData[currentFieldName].length == 0) {
+          setFormValidatorErrors((state) => ({
+            ...state,
+            [currentFieldNameErr]: 'Полето е задължително!',
+          }));
+        } else if (userData[currentFieldName].length < 3) {
+          setFormValidatorErrors((state) => ({
+            ...state,
+            [currentFieldNameErr]: 'E-mail-а не е правилен.',
+          }));
+        } else {
+          setFormValidatorErrors((state) => ({
+            ...state,
+            [currentFieldNameErr]: '',
+          }));
+        }
+
+        break;
+
+      case 'password':
+        if (userData[currentFieldName].length == 0) {
+          setFormValidatorErrors((state) => ({
+            ...state,
+            [currentFieldNameErr]: 'Полето е задължително!',
+          }));
+        } else {
+          setFormValidatorErrors((state) => ({
+            ...state,
+            [currentFieldNameErr]: '',
+          }));
+        }
+
+        break;
+
+      case 'rePassword':
+        if (userData[currentFieldName].length == 0) {
+          setFormValidatorErrors((state) => ({
+            ...state,
+            [currentFieldNameErr]: 'Полето е задължително!',
+          }));
+        } else if (userData[currentFieldName].length < 3) {
+          setFormValidatorErrors((state) => ({
+            ...state,
+            [currentFieldNameErr]: 'Паролите не са еднакви.',
+          }));
+        } else {
+          setFormValidatorErrors((state) => ({
+            ...state,
+            [currentFieldNameErr]: '',
+          }));
+        }
+
+        break;
+    }
   }
 
-  switch (currentFieldName) {
-    case 'firstName':
-      if (formValues[currentFieldName].length == 0) {
-        setFormValidatorErrors((state) => ({
-          ...state,
-          [currentFieldNameErr]: 'Полето е задължително!',
-        }));
-      } else if (formValues[currentFieldName].length < 3) {
-        setFormValidatorErrors((state) => ({
-          ...state,
-          [currentFieldNameErr]: 'Заглавието трябва да е минимум 3 символа.',
-        }));
-      } else {
-        setFormValidatorErrors((state) => ({
-          ...state,
-          [currentFieldNameErr]: '',
-        }));
-      }
-
-      break;
-
-    case 'lastName':
-      if (formValues[currentFieldName].length == 0) {
-        setFormValidatorErrors((state) => ({
-          ...state,
-          [currentFieldNameErr]: 'Полето е задължително!',
-        }));
-      } else if (formValues[currentFieldName].length < 3) {
-        setFormValidatorErrors((state) => ({
-          ...state,
-          [currentFieldNameErr]: 'Заглавието трябва да е минимум 3 символа.',
-        }));
-      } else {
-        setFormValidatorErrors((state) => ({
-          ...state,
-          [currentFieldNameErr]: '',
-        }));
-      }
-
-      break;
-
-    case 'email':
-      if (formValues[currentFieldName].length == 0) {
-        setFormValidatorErrors((state) => ({
-          ...state,
-          [currentFieldNameErr]: 'Полето е задължително!',
-        }));
-      } else if (formValues[currentFieldName].length < 3) {
-        setFormValidatorErrors((state) => ({
-          ...state,
-          [currentFieldNameErr]: 'Заглавието трябва да е минимум 3 символа.',
-        }));
-      } else {
-        setFormValidatorErrors((state) => ({
-          ...state,
-          [currentFieldNameErr]: '',
-        }));
-      }
-
-      break;
-
-    case 'password':
-      if (formValues[currentFieldName].length == 0) {
-        setFormValidatorErrors((state) => ({
-          ...state,
-          [currentFieldNameErr]: 'Полето е задължително!',
-        }));
-      } else if (formValues[currentFieldName].length < 3) {
-        setFormValidatorErrors((state) => ({
-          ...state,
-          [currentFieldNameErr]: 'Заглавието трябва да е минимум 3 символа.',
-        }));
-      } else {
-        setFormValidatorErrors((state) => ({
-          ...state,
-          [currentFieldNameErr]: '',
-        }));
-      }
-
-      break;
-
-    case 'rePassword':
-      if (formValues[currentFieldName].length == 0) {
-        setFormValidatorErrors((state) => ({
-          ...state,
-          [currentFieldNameErr]: 'Полето е задължително!',
-        }));
-      } else if (formValues[currentFieldName].length < 3) {
-        setFormValidatorErrors((state) => ({
-          ...state,
-          [currentFieldNameErr]: 'Заглавието трябва да е минимум 3 символа.',
-        }));
-      } else {
-        setFormValidatorErrors((state) => ({
-          ...state,
-          [currentFieldNameErr]: '',
-        }));
-      }
-
-      break;
+  if (
+    userData.firstName !== '' &&
+    userData.lastName !== '' &&
+    userData.email !== '' &&
+    userData.password !== '' &&
+    userData.rePassword !== '' &&
+    formValidatorErrors.firstNameErr == '' &&
+    formValidatorErrors.lastNameErr == '' &&
+    formValidatorErrors.emailErr == '' &&
+    formValidatorErrors.passwordErr == '' &&
+    formValidatorErrors.rePasswordErr == ''
+  ) {
+    isDisabled = false;
   }
 
   return {
