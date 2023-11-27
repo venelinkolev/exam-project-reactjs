@@ -72,7 +72,9 @@ export default function useAuthFormValidator() {
             ...state,
             [currentFieldNameErr]: 'Полето е задължително!',
           }));
-        } else if (userData[currentFieldName].length < 3) {
+        } else if (
+          !userData[currentFieldName].match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)
+        ) {
           setFormValidatorErrors((state) => ({
             ...state,
             [currentFieldNameErr]: 'E-mail-а не е правилен.',
@@ -102,12 +104,13 @@ export default function useAuthFormValidator() {
         break;
 
       case 'rePassword':
+        // console.log(userData.password, '', userData.rePassword);
         if (userData[currentFieldName].length == 0) {
           setFormValidatorErrors((state) => ({
             ...state,
             [currentFieldNameErr]: 'Полето е задължително!',
           }));
-        } else if (userData[currentFieldName].length < 3) {
+        } else if (userData[currentFieldName] != userData.password) {
           setFormValidatorErrors((state) => ({
             ...state,
             [currentFieldNameErr]: 'Паролите не са еднакви.',

@@ -67,10 +67,6 @@ export default function Register() {
     navigate('/my-recipes');
   }
 
-  // function passwordCheck(password, rePassword) {
-  //   return password !== rePassword ? false : true;
-  // }
-
   return (
     <>
       <div className='register-container'>
