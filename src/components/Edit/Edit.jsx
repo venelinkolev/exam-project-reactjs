@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import useTitleChange from '../../hooks/useTitleChange';
 import FormRecipe from '../FormRecipe/FormRecipe';
 
@@ -6,17 +6,25 @@ import { getRecipe, editRecipe } from '../../services/recipeServices';
 import './Edit.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import GoToTop from '../../util/GoToTop';
+import useFormValidator from '../../hooks/useFormValidator';
 
 export default function Edit() {
-  const [formValues, setFormValues] = useState({
-    recipeName: '',
-    imageUrl: '',
-    ingredients: '',
-    prepTime: '',
-    cookTime: '',
-    totalTime: '',
-    servings: '',
-  });
+  const {
+    formValues,
+    setFormValues,
+    formValidatorErrors,
+    formValidator,
+    isDisabled,
+  } = useFormValidator();
+  // const [formValues, setFormValues] = useState({
+  //   recipeName: '',
+  //   imageUrl: '',
+  //   ingredients: '',
+  //   prepTime: '',
+  //   cookTime: '',
+  //   totalTime: '',
+  //   servings: '',
+  // });
 
   const { recipeId } = useParams();
   // console.log(recipeId);
@@ -63,10 +71,12 @@ export default function Edit() {
           <h1>Редактирай Рецепта</h1>
           <form onSubmit={recipeEdit}>
             <FormRecipe
+              formValidatorErrors={formValidatorErrors}
+              formValidator={formValidator}
               formValues={formValues}
               changeFormHandler={changeFormHandler}
             />
-            <input type='submit' value='Редактирай' />
+            <input type='submit' disabled={isDisabled} value='Редактирай' />
           </form>
         </div>
       </div>
