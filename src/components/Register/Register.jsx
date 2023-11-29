@@ -13,6 +13,7 @@ export default function Register() {
     setUserData,
     formValidatorErrors,
     formValidator,
+    fieldChangeHandler,
     isDisabled,
   } = useAuthFormValidator();
 
@@ -22,12 +23,12 @@ export default function Register() {
 
   const userContextValues = useContext(UserContext);
 
-  function registerChangeHandler(e) {
-    setUserData((state) => ({
-      ...state,
-      [e.target.name]: e.target.value,
-    }));
-  }
+  // function fieldChangeHandler(e) {
+  //   setUserData((state) => ({
+  //     ...state,
+  //     [e.target.name]: e.target.value,
+  //   }));
+  // }
 
   async function registerUser(e) {
     e.preventDefault();
@@ -76,7 +77,7 @@ export default function Register() {
                     name='firstName'
                     placeholder='Иван'
                     value={userData.firstName}
-                    onChange={registerChangeHandler}
+                    onChange={fieldChangeHandler}
                     onBlur={formValidator}
                   />
                 </div>
@@ -88,7 +89,7 @@ export default function Register() {
                     name='lastName'
                     placeholder='Иванов'
                     value={userData.lastName}
-                    onChange={registerChangeHandler}
+                    onChange={fieldChangeHandler}
                     onBlur={formValidator}
                   />
                 </div>
@@ -108,7 +109,7 @@ export default function Register() {
                 name='email'
                 placeholder='example@gmail.com'
                 value={userData.email}
-                onChange={registerChangeHandler}
+                onChange={fieldChangeHandler}
                 onBlur={formValidator}
               />
               {formValidatorErrors.emailErr && (
@@ -121,7 +122,7 @@ export default function Register() {
                 name='password'
                 placeholder='****'
                 value={userData.password}
-                onChange={registerChangeHandler}
+                onChange={fieldChangeHandler}
                 onBlur={formValidator}
               />
               {formValidatorErrors.passwordErr && (
@@ -136,7 +137,7 @@ export default function Register() {
                 name='rePassword'
                 placeholder='****'
                 value={userData.rePassword}
-                onChange={registerChangeHandler}
+                onChange={fieldChangeHandler}
                 onBlur={formValidator}
               />
               {formValidatorErrors.rePasswordErr && (

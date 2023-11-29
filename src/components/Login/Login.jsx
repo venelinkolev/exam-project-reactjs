@@ -18,6 +18,7 @@ export default function Login() {
     setUserData,
     formValidatorErrors,
     formValidator,
+    fieldChangeHandler,
     isLoginDisabled,
   } = useAuthFormValidator();
 
@@ -53,12 +54,12 @@ export default function Login() {
     navigate('/my-recipes');
   }
 
-  function loginChangeHandler(e) {
-    setUserData((state) => ({
-      ...state,
-      [e.target.name]: e.target.value,
-    }));
-  }
+  // function loginChangeHandler(e) {
+  //   setUserData((state) => ({
+  //     ...state,
+  //     [e.target.name]: e.target.value,
+  //   }));
+  // }
 
   return (
     <>
@@ -74,7 +75,7 @@ export default function Login() {
                 name='email'
                 placeholder='example@gmail.com'
                 value={userData.email}
-                onChange={loginChangeHandler}
+                onChange={fieldChangeHandler}
                 onBlur={formValidator}
               />
               {formValidatorErrors.emailErr && (
@@ -87,7 +88,7 @@ export default function Login() {
                 name='password'
                 placeholder='****'
                 value={userData.password}
-                onChange={loginChangeHandler}
+                onChange={fieldChangeHandler}
                 onBlur={formValidator}
               />
               {formValidatorErrors.passwordErr && (

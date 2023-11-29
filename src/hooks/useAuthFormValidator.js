@@ -20,6 +20,13 @@ export default function useAuthFormValidator() {
   let isDisabled = true;
   let isLoginDisabled = true;
 
+  function fieldChangeHandler(e) {
+    setUserData((state) => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }));
+  }
+
   function formValidator(e) {
     let currentFieldName = e.target.name;
     let currentFieldNameErr = currentFieldName + 'Err';
@@ -161,6 +168,7 @@ export default function useAuthFormValidator() {
     setUserData,
     formValidatorErrors,
     formValidator,
+    fieldChangeHandler,
     isDisabled,
     isLoginDisabled,
   };
