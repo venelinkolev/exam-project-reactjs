@@ -18,6 +18,7 @@ export default function useAuthFormValidator() {
   });
 
   let isDisabled = true;
+  let isLoginDisabled = true;
 
   function formValidator(e) {
     let currentFieldName = e.target.name;
@@ -77,7 +78,7 @@ export default function useAuthFormValidator() {
         ) {
           setFormValidatorErrors((state) => ({
             ...state,
-            [currentFieldNameErr]: 'E-mail-а не е правилен.',
+            [currentFieldNameErr]: 'E-mail-а не е валиден.',
           }));
         } else {
           setFormValidatorErrors((state) => ({
@@ -93,6 +94,11 @@ export default function useAuthFormValidator() {
           setFormValidatorErrors((state) => ({
             ...state,
             [currentFieldNameErr]: 'Полето е задължително!',
+          }));
+        } else if (userData[currentFieldName].length < 5) {
+          setFormValidatorErrors((state) => ({
+            ...state,
+            [currentFieldNameErr]: 'Паролата трябва да е поне 5 символа.',
           }));
         } else {
           setFormValidatorErrors((state) => ({
@@ -141,11 +147,21 @@ export default function useAuthFormValidator() {
     isDisabled = false;
   }
 
+  if (
+    userData.email !== '' &&
+    userData.password !== '' &&
+    formValidatorErrors.emailErr == '' &&
+    formValidatorErrors.passwordErr == ''
+  ) {
+    isLoginDisabled = false;
+  }
+
   return {
     userData,
     setUserData,
     formValidatorErrors,
     formValidator,
     isDisabled,
+    isLoginDisabled,
   };
 }

@@ -5,12 +5,21 @@ import { UserContext } from '../../contexts/UserContext';
 import useTitleChange from '../../hooks/useTitleChange';
 import { Link, useNavigate } from 'react-router-dom';
 import GoToTop from '../../util/GoToTop';
+import useAuthFormValidator from '../../hooks/useAuthFormValidator';
 
 export default function Login() {
-  const [userData, setUserData] = useState({
-    email: '',
-    password: '',
-  });
+  // const [userData, setUserData] = useState({
+  //   email: '',
+  //   password: '',
+  // });
+
+  const {
+    userData,
+    setUserData,
+    formValidatorErrors,
+    formValidator,
+    isLoginDisabled,
+  } = useAuthFormValidator();
 
   useTitleChange('Login');
 
@@ -66,7 +75,11 @@ export default function Login() {
                 placeholder='example@gmail.com'
                 value={userData.email}
                 onChange={loginChangeHandler}
+                onBlur={formValidator}
               />
+              {formValidatorErrors.emailErr && (
+                <p className='validatorError'>{formValidatorErrors.emailErr}</p>
+              )}
               <label htmlFor='password'>Парола:</label>
               <input
                 type='password'
@@ -75,9 +88,15 @@ export default function Login() {
                 placeholder='****'
                 value={userData.password}
                 onChange={loginChangeHandler}
+                onBlur={formValidator}
               />
+              {formValidatorErrors.passwordErr && (
+                <p className='validatorError'>
+                  {formValidatorErrors.passwordErr}
+                </p>
+              )}
             </div>
-            <input type='submit' value='Вход' />
+            <input type='submit' disabled={isLoginDisabled} value='Вход' />
           </form>
           <p>
             Нямате още регистрация? <Link to={'/register'}>Регистрация</Link>

@@ -15,13 +15,6 @@ export default function Register() {
     formValidator,
     isDisabled,
   } = useAuthFormValidator();
-  // const [userData, setUserData] = useState({
-  //   firstName: '',
-  //   lastName: '',
-  //   email: '',
-  //   password: '',
-  //   rePassword: '',
-  // });
 
   useTitleChange('Register');
 
