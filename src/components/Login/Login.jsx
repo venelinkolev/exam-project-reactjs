@@ -11,7 +11,6 @@ import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerCont
 export default function Login() {
   const {
     userData,
-    setUserData,
     formValidatorErrors,
     formValidator,
     fieldChangeHandler,
@@ -24,7 +23,7 @@ export default function Login() {
 
   const userContextValues = useContext(UserContext);
   const errorContextValues = useContext(ServerErrorHandlerContext);
-  console.log(errorContextValues);
+  // console.log(errorContextValues);
 
   async function loginUser(e) {
     e.preventDefault();
@@ -48,6 +47,10 @@ export default function Login() {
         userContextValues.userData(userDataToken);
       });
 
+      errorContextValues.changeErrors({
+        type: 'Success',
+        message: 'Успешен вход!',
+      });
       // navigate('/home');
       navigate('/my-recipes');
     } catch (error) {

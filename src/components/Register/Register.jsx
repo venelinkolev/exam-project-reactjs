@@ -11,7 +11,6 @@ import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerCont
 export default function Register() {
   const {
     userData,
-    setUserData,
     formValidatorErrors,
     formValidator,
     fieldChangeHandler,
@@ -24,7 +23,7 @@ export default function Register() {
 
   const userContextValues = useContext(UserContext);
   const errorContextValues = useContext(ServerErrorHandlerContext);
-  console.log(errorContextValues);
+  // console.log(errorContextValues);
 
   async function registerUser(e) {
     e.preventDefault();
@@ -52,6 +51,10 @@ export default function Register() {
         userContextValues.userData(userDataToken);
       });
 
+      errorContextValues.changeErrors({
+        type: 'Success',
+        message: 'Успешна регистрация и вход!',
+      });
       // navigate('/home');
       navigate('/my-recipes');
     } catch (error) {

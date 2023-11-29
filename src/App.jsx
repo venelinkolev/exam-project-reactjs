@@ -54,7 +54,7 @@ function App() {
         type: '',
         message: '',
       });
-    }, 5000);
+    }, 4000);
     return () => clearTimeout(timer);
   }, [errors.message]);
 
@@ -82,7 +82,17 @@ function App() {
         <div className='site'>
           <Header />
           <div className='routing'>
-            {visible && <p>{errors.message}</p>}
+            {visible && (
+              <div className='container'>
+                <p
+                  className={
+                    errors.type == 'Error' ? 'error-message' : 'success-message'
+                  }
+                >
+                  {errors.message}
+                </p>
+              </div>
+            )}
             <Routes>
               {['/', 'home'].map((path) => (
                 <Route key={path} path={path} element={<Home />} />
