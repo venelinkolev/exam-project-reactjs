@@ -5,19 +5,28 @@ import { getOwnerRecipes } from '../../services/recipeServices';
 import { UserContext } from '../../contexts/UserContext';
 import RecipeCard from '../Catalog/RecipeCard';
 import GoToTop from '../../util/GoToTop';
+import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
 
 export default function MyRecipes() {
   const [recipes, setRecipes] = useState([]);
 
   const userContextValues = useContext(UserContext);
+  const errorContextValues = useContext(ServerErrorHandlerContext);
 
   const ownerId = userContextValues.userInfo.userId;
 
   useEffect(() => {
-    getOwnerRecipes(ownerId).then((ownerRecipes) => {
-      //console.log(ownerRecipes);
-      setRecipes(ownerRecipes);
-    });
+    try {
+      getOwnerRecipes(ownerId).then((ownerRecipes) => {
+        //console.log(ownerRecipes);
+        setRecipes(ownerRecipes);
+      });
+    } catch (error) {
+      errorContextValues.changeErrors({
+        type: 'Error',
+        message: error.message,
+      });
+    }
   }, []);
 
   useTitleChange('My Recipes');

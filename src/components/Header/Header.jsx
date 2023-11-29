@@ -3,9 +3,11 @@ import './Header.css';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { logout } from '../../services/userServices';
+import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
 
 export default function Header() {
   const userContextValues = useContext(UserContext);
+  const errorContextValues = useContext(ServerErrorHandlerContext);
 
   const navigate = useNavigate();
 
@@ -29,9 +31,16 @@ export default function Header() {
 
     localStorage.removeItem('authToken');
 
-    await logout();
+    try {
+      await logout();
 
-    navigate('/home');
+      navigate('/home');
+    } catch (error) {
+      errorContextValues.changeErrors({
+        type: 'Error',
+        message: error.message,
+      });
+    }
   }
 
   return (

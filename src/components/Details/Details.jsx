@@ -5,6 +5,7 @@ import { getRecipe, removeRecipe } from '../../services/recipeServices';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import GoToTop from '../../util/GoToTop';
+import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
 
 export default function Details() {
   const [recipe, setRecipe] = useState({
@@ -24,16 +25,22 @@ export default function Details() {
   const navigate = useNavigate();
 
   const userContextValues = useContext(UserContext);
+  const errorContextValues = useContext(ServerErrorHandlerContext);
 
   const { recipeId } = useParams();
 
   useEffect(() => {
-    getRecipe(recipeId)
-      .then((recipe) => {
+    try {
+      getRecipe(recipeId).then((recipe) => {
         //console.log(recipe);
         setRecipe(recipe[0]);
-      })
-      .catch((err) => console.log(err));
+      });
+    } catch (error) {
+      errorContextValues.changeErrors({
+        type: 'Error',
+        message: error.message,
+      });
+    }
   }, [recipeId]);
 
   // console.log(userContextValues.userInfo.userId, recipe.userId);
@@ -42,12 +49,23 @@ export default function Details() {
 
   async function deleteRecipe(recipeId) {
     if (window.confirm('Искате ли да изтриете рецептата?')) {
-      await removeRecipe(recipe._id)
-        .then((result) => {
+      try {
+        await removeRecipe(recipe._id).then((result) => {
           //console.log(result);
+
+          errorContextValues.changeErrors({
+            type: 'Success',
+            message: `Успешно изтрихте рецепта "${recipe.recipeName}".`,
+          });
+
           navigate('/my-recipes');
-        })
-        .catch((err) => console.log(err));
+        });
+      } catch (error) {
+        errorContextValues.changeErrors({
+          type: 'Error',
+          message: error.message,
+        });
+      }
     } else {
       return;
     }

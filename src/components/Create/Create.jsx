@@ -5,6 +5,8 @@ import { createReciep } from '../../services/recipeServices';
 import { useNavigate } from 'react-router-dom';
 import GoToTop from '../../util/GoToTop';
 import useFormValidator from '../../hooks/useFormValidator';
+import { useContext } from 'react';
+import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
 
 export default function Create() {
   const {
@@ -18,18 +20,30 @@ export default function Create() {
 
   useTitleChange('Create');
 
+  const errorsContextValues = useContext(ServerErrorHandlerContext);
+
   const navigate = useNavigate();
 
-  function createNewRecipe(e) {
+  async function createNewRecipe(e) {
     e.preventDefault();
 
-    createReciep(formValues)
-      .then((result) => {
+    try {
+      await createReciep(formValues).then((result) => {
         console.log(result);
-      })
-      .catch((err) => {
-        console.log(err);
       });
+
+      errorsContextValues.changeErrors({
+        type: 'Success',
+        message: `Успешно създаде рецепта "${formValues.recipeName}".`,
+      });
+
+      window.scrollTo(0, 0);
+    } catch (error) {
+      errorsContextValues.changeErrors({
+        type: 'Error',
+        message: error.message,
+      });
+    }
 
     setFormValues({
       recipeName: '',
@@ -40,9 +54,6 @@ export default function Create() {
       totalTime: '',
       servings: '',
     });
-    // navigate('/my-recipes');
-    // console.log(formValues)
-    // console.log(e);
   }
 
   return (

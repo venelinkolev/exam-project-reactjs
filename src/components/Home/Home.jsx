@@ -1,21 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import CatalogHomePage from './CatalogHomePage';
 import DayRecipeCard from './DayRecipeCard';
 import './Home.css';
 import { getAllRecipes, getRecipe } from '../../services/recipeServices';
 import useTitleChange from '../../hooks/useTitleChange';
 import GoToTop from '../../util/GoToTop';
+import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
 
+  const errorContextValues = useContext(ServerErrorHandlerContext);
+
   useEffect(() => {
-    getAllRecipes()
-      .then((result) => {
+    try {
+      getAllRecipes().then((result) => {
         //console.log(result);
         setRecipes(result);
-      })
-      .catch((err) => console.log(err));
+      });
+    } catch (error) {
+      errorContextValues.changeErrors({
+        type: 'Error',
+        message: error.message,
+      });
+    }
   }, []);
 
   useTitleChange('Home');

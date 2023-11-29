@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import useTitleChange from '../../hooks/useTitleChange';
 import FormRecipe from '../FormRecipe/FormRecipe';
 
@@ -7,6 +7,7 @@ import './Edit.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import GoToTop from '../../util/GoToTop';
 import useFormValidator from '../../hooks/useFormValidator';
+import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
 
 export default function Edit() {
   const {
@@ -18,34 +19,51 @@ export default function Edit() {
     isDisabled,
   } = useFormValidator();
 
+  const errorContextValues = useContext(ServerErrorHandlerContext);
+
   const { recipeId } = useParams();
   // console.log(recipeId);
   const navigate = useNavigate();
 
   useEffect(() => {
-    getRecipe(recipeId).then((result) => {
-      // console.log(result);
-      setFormValues(result[0]);
-    });
+    try {
+      getRecipe(recipeId).then((result) => {
+        // console.log(result);
+        setFormValues(result[0]);
+      });
+    } catch (error) {
+      errorContextValues.changeErrors({
+        type: 'Error',
+        message: error.message,
+      });
+    }
   }, [recipeId]);
 
   useTitleChange('Edit');
 
-  function recipeEdit(e) {
+  async function recipeEdit(e) {
     e.preventDefault();
 
-    editRecipe(recipeId, formValues)
-      .then((result) => {
+    try {
+      await editRecipe(recipeId, formValues).then((result) => {
         console.log(result);
-      })
-      .catch((err) => {
-        console.log(err);
       });
 
-    // console.log(formValues)
-    // console.log(e);
+      // console.log(formValues)
+      // console.log(e);
 
-    navigate(`/catalog/${recipeId}/details`);
+      errorContextValues.changeErrors({
+        type: 'Success',
+        message: `Успешно редактирахте рецепта "${formValues.recipeName}".`,
+      });
+
+      navigate(`/catalog/${recipeId}/details`);
+    } catch (error) {
+      errorContextValues.changeErrors({
+        type: 'Error',
+        message: error.message,
+      });
+    }
   }
 
   return (

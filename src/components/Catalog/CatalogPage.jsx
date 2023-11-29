@@ -1,22 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import useTitleChange from '../../hooks/useTitleChange';
 import './CatalogPage.css';
 import RecipeCard from './RecipeCard';
 import { getAllRecipes } from '../../services/recipeServices';
+import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
 
 export default function CatalogPage() {
   const [recipes, setRecipes] = useState([]);
 
+  const errorContextValues = useContext(ServerErrorHandlerContext);
+
   useEffect(() => {
-    getAllRecipes()
-      .then((result) => {
+    try {
+      getAllRecipes().then((result) => {
         // console.log(result);
         setRecipes(result);
-      })
-      .catch((err) => console.log(err));
+      });
+    } catch (error) {
+      errorContextValues.changeErrors({
+        type: 'Error',
+        message: error.message,
+      });
+    }
   }, []);
 
   useTitleChange('Catalog');
+
   return (
     <>
       <div className='main'>
