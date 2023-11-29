@@ -14,6 +14,8 @@ import Register from './components/Register/Register';
 import Search from './components/Search/Search';
 import { UserContext } from './contexts/UserContext';
 import MyRecipes from './components/MyRecipes/MyRecipes';
+import AuthGuard from './guards/AuthGuard';
+import LoginRegisterGuard from './guards/LoginRegisterGuard';
 
 function App() {
   const [userInfo, setUserInfo] = useState(() => {
@@ -53,13 +55,17 @@ function App() {
             ))}
             {/* <Route path='/' element={<Home />} />
             <Route path='/home' element={<Home />} /> */}
-            <Route path='/catalog' element={<CatalogPage />} />
+            <Route element={<AuthGuard />}>
+              <Route path='/create' element={<Create />} />
+              <Route path='/catalog/:recipeId/edit' element={<Edit />} />
+              <Route path='/my-recipes' element={<MyRecipes />} />
+            </Route>
+            <Route element={<LoginRegisterGuard />}>
+              <Route path='/login' element={<Login />} />
+              <Route path='/register' element={<Register />} />
+            </Route>
             <Route path='/catalog/:recipeId/details' element={<Details />} />
-            <Route path='/catalog/:recipeId/edit' element={<Edit />} />
-            <Route path='/my-recipes' element={<MyRecipes />} />
-            <Route path='/create' element={<Create />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
+            <Route path='/catalog' element={<CatalogPage />} />
             <Route path='/search' element={<Search />} />
             <Route path='*' element={<PageNotFound />} />
           </Routes>
