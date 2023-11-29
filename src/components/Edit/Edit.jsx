@@ -47,17 +47,17 @@ export default function Edit() {
     try {
       await editRecipe(recipeId, formValues).then((result) => {
         console.log(result);
+
+        // console.log(formValues)
+        // console.log(e);
+
+        errorContextValues.changeErrors({
+          type: 'Success',
+          message: `Успешно редактирахте рецепта "${formValues.recipeName}".`,
+        });
+
+        navigate(`/catalog/${recipeId}/details`);
       });
-
-      // console.log(formValues)
-      // console.log(e);
-
-      errorContextValues.changeErrors({
-        type: 'Success',
-        message: `Успешно редактирахте рецепта "${formValues.recipeName}".`,
-      });
-
-      navigate(`/catalog/${recipeId}/details`);
     } catch (error) {
       errorContextValues.changeErrors({
         type: 'Error',
