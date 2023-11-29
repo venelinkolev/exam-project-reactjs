@@ -14,6 +14,7 @@ export default function Edit() {
     setFormValues,
     formValidatorErrors,
     formValidator,
+    changeFormHandler,
     isDisabled,
   } = useFormValidator();
 
@@ -29,14 +30,6 @@ export default function Edit() {
   }, [recipeId]);
 
   useTitleChange('Edit');
-
-  function changeFormHandler(e) {
-    // console.log('Change')
-    setFormValues((state) => ({
-      ...state,
-      [e.target.name]: e.target.value,
-    }));
-  }
 
   function recipeEdit(e) {
     e.preventDefault();

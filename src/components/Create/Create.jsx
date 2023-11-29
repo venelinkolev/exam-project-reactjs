@@ -12,20 +12,13 @@ export default function Create() {
     setFormValues,
     formValidatorErrors,
     formValidator,
+    changeFormHandler,
     isDisabled,
   } = useFormValidator();
 
   useTitleChange('Create');
 
   const navigate = useNavigate();
-
-  function changeFormHandler(e) {
-    // console.log('Change')
-    setFormValues((state) => ({
-      ...state,
-      [e.target.name]: e.target.value,
-    }));
-  }
 
   function createNewRecipe(e) {
     e.preventDefault();

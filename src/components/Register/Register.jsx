@@ -23,13 +23,6 @@ export default function Register() {
 
   const userContextValues = useContext(UserContext);
 
-  // function fieldChangeHandler(e) {
-  //   setUserData((state) => ({
-  //     ...state,
-  //     [e.target.name]: e.target.value,
-  //   }));
-  // }
-
   async function registerUser(e) {
     e.preventDefault();
 

@@ -23,6 +23,14 @@ export default function useFormValidator() {
 
   let isDisabled = true;
 
+  function changeFormHandler(e) {
+    // console.log('Change')
+    setFormValues((state) => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }));
+  }
+
   function formValidator(e) {
     let currentFieldName = e.target.name;
     let currentFieldNameErr = currentFieldName + 'Err';
@@ -219,6 +227,7 @@ export default function useFormValidator() {
     setFormValues,
     formValidator,
     formValidatorErrors,
+    changeFormHandler,
     isDisabled,
   };
 }
