@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
@@ -38,6 +38,26 @@ function App() {
     message: '',
   });
 
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    console.log('Clear Errors');
+    if (errors.message === '') {
+      setVisible(false);
+      return;
+    }
+
+    setVisible(true);
+    const timer = setTimeout(() => {
+      setVisible(false);
+      setErrors({
+        type: '',
+        message: '',
+      });
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [errors.message]);
+
   function userData(user) {
     setUserInfo(Object.assign(user));
   }
@@ -62,7 +82,7 @@ function App() {
         <div className='site'>
           <Header />
           <div className='routing'>
-            {errors.message && <p>{errors.message}</p>}
+            {visible && <p>{errors.message}</p>}
             <Routes>
               {['/', 'home'].map((path) => (
                 <Route key={path} path={path} element={<Home />} />

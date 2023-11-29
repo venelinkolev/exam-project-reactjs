@@ -47,7 +47,9 @@ export default function Login() {
 
         userContextValues.userData(userDataToken);
       });
-      // .catch((err) => console.log(err.message));
+
+      // navigate('/home');
+      navigate('/my-recipes');
     } catch (error) {
       errorContextValues.changeErrors({
         type: 'Error',
@@ -55,8 +57,6 @@ export default function Login() {
       });
       console.log(error);
     }
-
-    navigate('/my-recipes');
   }
 
   return (

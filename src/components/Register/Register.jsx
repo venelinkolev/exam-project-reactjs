@@ -6,6 +6,7 @@ import { register } from '../../services/userServices';
 import { Link, useNavigate } from 'react-router-dom';
 import GoToTop from '../../util/GoToTop';
 import useAuthFormValidator from '../../hooks/useAuthFormValidator';
+import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
 
 export default function Register() {
   const {
@@ -22,6 +23,8 @@ export default function Register() {
   const navigate = useNavigate();
 
   const userContextValues = useContext(UserContext);
+  const errorContextValues = useContext(ServerErrorHandlerContext);
+  console.log(errorContextValues);
 
   async function registerUser(e) {
     e.preventDefault();
@@ -34,9 +37,8 @@ export default function Register() {
     };
 
     // console.log(registerData);
-
-    await register(registerData)
-      .then((result) => {
+    try {
+      await register(registerData).then((result) => {
         console.log(result);
 
         const userDataToken = {
@@ -48,10 +50,17 @@ export default function Register() {
         localStorage.setItem('authToken', JSON.stringify(userDataToken));
 
         userContextValues.userData(userDataToken);
-      })
-      .catch((err) => console.log(err));
+      });
 
-    navigate('/my-recipes');
+      // navigate('/home');
+      navigate('/my-recipes');
+    } catch (error) {
+      errorContextValues.changeErrors({
+        type: 'Error',
+        message: error.message,
+      });
+      console.log(error);
+    }
   }
 
   return (
