@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
@@ -16,6 +16,7 @@ import { UserContext } from './contexts/UserContext';
 import MyRecipes from './components/MyRecipes/MyRecipes';
 import AuthGuard from './guards/AuthGuard';
 import LoginRegisterGuard from './guards/LoginRegisterGuard';
+import { ServerErrorHandlerContext } from './contexts/ServerErrorHandlerContext';
 
 function App() {
   const [userInfo, setUserInfo] = useState(() => {
@@ -32,8 +33,10 @@ function App() {
     };
   });
 
-  // console.log(userInfo);
-  // useEffect(() => {}, [userInfo]);
+  const [errors, setErrors] = useState({
+    type: '',
+    message: '',
+  });
 
   function userData(user) {
     setUserInfo(Object.assign(user));
@@ -44,35 +47,47 @@ function App() {
     userData,
   };
 
+  function changeErrors(err) {
+    setErrors(Object.assign(err));
+  }
+
+  const errorsContextValues = {
+    errors,
+    changeErrors,
+  };
+
   return (
-    <UserContext.Provider value={contextValues}>
-      <div className='site'>
-        <Header />
-        <div className='routing'>
-          <Routes>
-            {['/', 'home'].map((path) => (
-              <Route key={path} path={path} element={<Home />} />
-            ))}
-            {/* <Route path='/' element={<Home />} />
+    <ServerErrorHandlerContext.Provider value={errorsContextValues}>
+      <UserContext.Provider value={contextValues}>
+        <div className='site'>
+          <Header />
+          <div className='routing'>
+            {errors.message && <p>{errors.message}</p>}
+            <Routes>
+              {['/', 'home'].map((path) => (
+                <Route key={path} path={path} element={<Home />} />
+              ))}
+              {/* <Route path='/' element={<Home />} />
             <Route path='/home' element={<Home />} /> */}
-            <Route element={<AuthGuard />}>
-              <Route path='/create' element={<Create />} />
-              <Route path='/catalog/:recipeId/edit' element={<Edit />} />
-              <Route path='/my-recipes' element={<MyRecipes />} />
-            </Route>
-            <Route element={<LoginRegisterGuard />}>
-              <Route path='/login' element={<Login />} />
-              <Route path='/register' element={<Register />} />
-            </Route>
-            <Route path='/catalog/:recipeId/details' element={<Details />} />
-            <Route path='/catalog' element={<CatalogPage />} />
-            <Route path='/search' element={<Search />} />
-            <Route path='*' element={<PageNotFound />} />
-          </Routes>
+              <Route element={<AuthGuard />}>
+                <Route path='/create' element={<Create />} />
+                <Route path='/catalog/:recipeId/edit' element={<Edit />} />
+                <Route path='/my-recipes' element={<MyRecipes />} />
+              </Route>
+              <Route element={<LoginRegisterGuard />}>
+                <Route path='/login' element={<Login />} />
+                <Route path='/register' element={<Register />} />
+              </Route>
+              <Route path='/catalog/:recipeId/details' element={<Details />} />
+              <Route path='/catalog' element={<CatalogPage />} />
+              <Route path='/search' element={<Search />} />
+              <Route path='*' element={<PageNotFound />} />
+            </Routes>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </UserContext.Provider>
+      </UserContext.Provider>
+    </ServerErrorHandlerContext.Provider>
   );
 }
 

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import './Login.css';
 import { login } from '../../services/userServices';
 import { UserContext } from '../../contexts/UserContext';
@@ -6,13 +6,9 @@ import useTitleChange from '../../hooks/useTitleChange';
 import { Link, useNavigate } from 'react-router-dom';
 import GoToTop from '../../util/GoToTop';
 import useAuthFormValidator from '../../hooks/useAuthFormValidator';
+import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
 
 export default function Login() {
-  // const [userData, setUserData] = useState({
-  //   email: '',
-  //   password: '',
-  // });
-
   const {
     userData,
     setUserData,
@@ -27,12 +23,14 @@ export default function Login() {
   const navigate = useNavigate();
 
   const userContextValues = useContext(UserContext);
+  const errorContextValues = useContext(ServerErrorHandlerContext);
+  console.log(errorContextValues);
 
   async function loginUser(e) {
     e.preventDefault();
     // console.log(userData);
-    await login(userData)
-      .then((result) => {
+    try {
+      await login(userData).then((result) => {
         if (result.message) {
           throw new Error(result.message);
         }
@@ -48,18 +46,18 @@ export default function Login() {
         localStorage.setItem('authToken', JSON.stringify(userDataToken));
 
         userContextValues.userData(userDataToken);
-      })
-      .catch((err) => console.log(err.message));
+      });
+      // .catch((err) => console.log(err.message));
+    } catch (error) {
+      errorContextValues.changeErrors({
+        type: 'Error',
+        message: error.message,
+      });
+      console.log(error);
+    }
 
     navigate('/my-recipes');
   }
-
-  // function loginChangeHandler(e) {
-  //   setUserData((state) => ({
-  //     ...state,
-  //     [e.target.name]: e.target.value,
-  //   }));
-  // }
 
   return (
     <>

@@ -9,7 +9,7 @@ export default function Header() {
 
   const navigate = useNavigate();
 
-  console.log(userContextValues);
+  // console.log(userContextValues);
 
   async function logoutHendler(e) {
     // console.log(e);
