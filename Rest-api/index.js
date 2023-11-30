@@ -1,5 +1,5 @@
 global.__basedir = __dirname;
-require('dotenv').config()
+require('dotenv').config();
 const dbConnector = require('./config/db');
 // const mongoose = require('mongoose');
 const apiRouter = require('./router');
@@ -14,10 +14,14 @@ dbConnector()
     const app = require('express')();
     require('./config/express')(app);
 
-    app.use(cors({
-      origin: config.origin,
-      credentials: true
-    }));
+    app.use(
+      cors({
+        origin: config.origin,
+        credentials: true, // Allow cookies and HTTP authentication to be included
+        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+        optionsSuccessStatus: 204,
+      })
+    );
 
     app.use('/api', apiRouter);
 

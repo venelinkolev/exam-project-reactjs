@@ -38,7 +38,7 @@ export default function Register() {
     // console.log(registerData);
     try {
       await register(registerData).then((result) => {
-        console.log(result);
+        // console.log(result);
 
         const userDataToken = {
           userName: `${result.firstName} ${result.lastName}`,
@@ -55,6 +55,7 @@ export default function Register() {
         type: 'Success',
         message: 'Успешна регистрация и вход!',
       });
+
       // navigate('/home');
       navigate('/my-recipes');
     } catch (error) {

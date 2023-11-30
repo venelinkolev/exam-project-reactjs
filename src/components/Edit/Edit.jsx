@@ -50,14 +50,14 @@ export default function Edit() {
 
         // console.log(formValues)
         // console.log(e);
-
-        errorContextValues.changeErrors({
-          type: 'Success',
-          message: `Успешно редактирахте рецепта "${formValues.recipeName}".`,
-        });
-
-        navigate(`/catalog/${recipeId}/details`);
       });
+
+      errorContextValues.changeErrors({
+        type: 'Success',
+        message: `Успешно редактирахте рецепта "${formValues.recipeName}".`,
+      });
+
+      navigate(`/catalog/${recipeId}/details`);
     } catch (error) {
       errorContextValues.changeErrors({
         type: 'Error',

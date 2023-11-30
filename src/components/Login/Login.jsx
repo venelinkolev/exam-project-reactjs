@@ -30,9 +30,9 @@ export default function Login() {
     // console.log(userData);
     try {
       await login(userData).then((result) => {
-        if (result.message) {
-          throw new Error(result.message);
-        }
+        // if (result.message) {
+        //   throw new Error(result.message);
+        // }
 
         const userDataToken = {
           userName: `${result.firstName} ${result.lastName}`,
@@ -51,8 +51,9 @@ export default function Login() {
         type: 'Success',
         message: 'Успешен вход!',
       });
-      // navigate('/home');
+
       navigate('/my-recipes');
+      // navigate('/home');
     } catch (error) {
       errorContextValues.changeErrors({
         type: 'Error',

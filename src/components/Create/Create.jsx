@@ -30,14 +30,14 @@ export default function Create() {
     try {
       await createReciep(formValues).then((result) => {
         console.log(result);
-
-        errorsContextValues.changeErrors({
-          type: 'Success',
-          message: `Успешно създаде рецепта "${formValues.recipeName}".`,
-        });
-
-        window.scrollTo(0, 0);
       });
+
+      errorsContextValues.changeErrors({
+        type: 'Success',
+        message: `Успешно създаде рецепта "${formValues.recipeName}".`,
+      });
+
+      window.scrollTo(0, 0);
     } catch (error) {
       errorsContextValues.changeErrors({
         type: 'Error',

@@ -52,14 +52,14 @@ export default function Details() {
       try {
         await removeRecipe(recipe._id).then((result) => {
           //console.log(result);
-
-          errorContextValues.changeErrors({
-            type: 'Success',
-            message: `Успешно изтрихте рецепта "${recipe.recipeName}".`,
-          });
-
-          navigate('/my-recipes');
         });
+
+        errorContextValues.changeErrors({
+          type: 'Success',
+          message: `Успешно изтрихте рецепта "${recipe.recipeName}".`,
+        });
+
+        navigate('/my-recipes');
       } catch (error) {
         errorContextValues.changeErrors({
           type: 'Error',

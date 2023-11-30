@@ -21,12 +21,12 @@ const options = (data) => {
 
 const request = async (method, url, data) => {
   const response = await fetch(url, {
-    ...options(data),
     method,
+    ...options(data),
   });
   // console.log(response);
 
-  if (response.status == 204) {
+  if (response.status === 204) {
     return {};
   }
 
