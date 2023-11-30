@@ -1,20 +1,23 @@
 const options = (data) => {
-  const options = {};
+  const options = {
+    credentials: 'include',
+  };
 
   if (data) {
     options.body = JSON.stringify(data);
     options.headers = {
       'Content-type': 'application/json',
-      Accept: 'application/json',
+      // Accept: 'application/json',
     };
-    options.credentials = 'include';
-  } else {
-    options.headers = {
-      'Content-type': 'application/json',
-      Accept: 'application/json',
-    };
-    options.credentials = 'include';
+    // options.credentials = 'include';
   }
+  // else {
+  //   options.headers = {
+  //     'Content-type': 'application/json',
+  //     Accept: 'application/json',
+  //   };
+  //   options.credentials = 'include';
+  // }
 
   return options;
 };
