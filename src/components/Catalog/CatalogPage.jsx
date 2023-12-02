@@ -4,6 +4,7 @@ import './CatalogPage.css';
 import RecipeCard from './RecipeCard';
 import { getAllRecipes } from '../../services/recipeServices';
 import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
+import Spinner from '../Spinner/Spinner';
 
 export default function CatalogPage() {
   const [recipes, setRecipes] = useState([]);
@@ -31,6 +32,7 @@ export default function CatalogPage() {
       <div className='main'>
         <h1>КАТАЛОГ</h1>
         <div className='recipe-card container'>
+          {recipes.length === 0 && <Spinner />}
           {recipes.map((recipe) => (
             <RecipeCard key={recipe._id} {...recipe} />
           ))}

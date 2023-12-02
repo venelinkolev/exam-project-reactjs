@@ -42,7 +42,6 @@ export default function Search() {
 
   useTitleChange('Search');
 
-  console.log(recipes);
   return (
     <>
       <div className='search'>
@@ -60,7 +59,7 @@ export default function Search() {
           </form>
         </div>
         <div className='search-recipe-card container'>
-          {recipes.length == 0 && (
+          {recipes.length === 0 && (
             <div className='no-recipes'>
               <p>Няма намерени рецепти</p>
               <img
