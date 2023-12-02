@@ -3,17 +3,22 @@ import useTitleChange from '../../hooks/useTitleChange';
 import GoToTop from '../../util/GoToTop';
 import './Search.css';
 import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
-import { getAllRecipes } from '../../services/recipeServices';
+import { search } from '../../services/recipeServices';
 import RecipeCard from '../Catalog/RecipeCard';
 
 export default function Search() {
   const [recipes, setRecipes] = useState([]);
+  const [searchValue, setSearchValue] = useState({
+    char: '',
+  });
 
   const errorContextValues = useContext(ServerErrorHandlerContext);
 
-  useEffect(() => {
+  async function searchRecipe(e) {
+    e.preventDefault();
+
     try {
-      getAllRecipes().then((result) => {
+      await search(searchValue.char).then((result) => {
         // console.log(result);
         setRecipes(result);
       });
@@ -23,17 +28,33 @@ export default function Search() {
         message: error.message,
       });
     }
-  }, []);
+  }
+
+  function fieldChangeHandler(e) {
+    // e.preventDefault();
+
+    console.log(e.target.value);
+    setSearchValue((state) => ({
+      ...state,
+      char: e.target.value,
+    }));
+  }
 
   useTitleChange('Search');
   return (
     <>
       <div className='search'>
         <h1>Търси рецепта</h1>
-        <div className='search-field container'>
-          <form action='GET'>
-            <label htmlFor='search'>Търси</label>
-            <input type='text' id='search' placeholder='Име на рецептата ...' />
+        <div className='search-field'>
+          <form onSubmit={searchRecipe}>
+            <label htmlFor='search'></label>
+            <input
+              type='text'
+              id='search'
+              placeholder='Име на рецептата ...'
+              onChange={fieldChangeHandler}
+            />
+            <input type='submit' value='Търси' />
           </form>
         </div>
         <div className='search-recipe-card container'>

@@ -18,19 +18,24 @@
 }
 
 .search-field form>input {
+    width: 300px;
     padding: 0.5rem 1rem;
     border: 2px solid orangered;
     border-radius: 2rem;
     margin-bottom: 1rem;
+    font-family: Nunito, "Helvetica Neue", sans-serif;
+    /* font-size: 1.2rem; */
 }
 
+
 .search-field label {
-    display: block;
+    /* display: block; */
     text-align: start;
     padding-left: 0.5rem;
     font-weight: bold;
     font-size: 1.1rem;
     font-style: italic;
+    color: orangered;
 }
 
 .search-field form>input:hover {
