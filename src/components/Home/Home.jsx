@@ -6,6 +6,7 @@ import { getAllRecipes, getRecipe } from '../../services/recipeServices';
 import useTitleChange from '../../hooks/useTitleChange';
 import GoToTop from '../../util/GoToTop';
 import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
+import Spinner from '../Spinner/Spinner';
 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
@@ -81,7 +82,8 @@ export default function Home() {
         <div className='header-recipe'>
           <h2>ОТ КУХНЯТА</h2>
         </div>
-        <DayRecipeCard {...recipeOfTheDay()} />
+        {recipes.length === 0 && <Spinner />}
+        {recipes.length !== 0 && <DayRecipeCard {...recipeOfTheDay()} />}
       </div>
       <hr />
       <section className='container catalog-home-page'>
