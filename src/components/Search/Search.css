@@ -17,7 +17,7 @@
     border-bottom: 3px solid orangered;
 }
 
-form {
+.search-field form {
     display: flex;
     align-items: center;
 }
@@ -70,4 +70,26 @@ form {
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 2rem;
+}
+
+.no-recipes {
+    width: 80%;
+    padding: 1em;
+    overflow: hidden;
+    text-align: center;
+}
+
+.no-recipes p {
+    color: orangered;
+    font-size: larger;
+    font-weight: 700;
+    text-shadow: 1px 2px 2px white;
+}
+
+.no-recipes img {
+    margin-top: 1em;
+    display: block;
+    border-radius: 3em;
+    width: 100%;
+    box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 1);
 }

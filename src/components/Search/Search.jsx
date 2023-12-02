@@ -41,6 +41,8 @@ export default function Search() {
   }
 
   useTitleChange('Search');
+
+  console.log(recipes);
   return (
     <>
       <div className='search'>
@@ -51,13 +53,22 @@ export default function Search() {
             <input
               type='text'
               id='search'
-              placeholder='Име на рецептата ...'
+              placeholder='Име на рецепта ...'
               onChange={fieldChangeHandler}
             />
             <input id='searchBtn' type='submit' value='Търси' />
           </form>
         </div>
         <div className='search-recipe-card container'>
+          {recipes.length == 0 && (
+            <div className='no-recipes'>
+              <p>Няма намерени рецепти</p>
+              <img
+                src='https://rare-gallery.com/uploads/posts/504250-Cake-Pastry.jpg'
+                alt='Image'
+              />
+            </div>
+          )}
           {recipes.map((recipe) => (
             <RecipeCard key={recipe._id} {...recipe} />
           ))}
