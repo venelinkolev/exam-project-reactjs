@@ -41,3 +41,9 @@ export async function editRecipe(recipeId, recipeData) {
 
   return result;
 }
+
+export async function search(char) {
+  const result = await request.get(`${environment.url}/search?title=${char}`);
+
+  return result;
+}
