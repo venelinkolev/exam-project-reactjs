@@ -33,7 +33,7 @@ export default function Search() {
   function fieldChangeHandler(e) {
     // e.preventDefault();
 
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setSearchValue((state) => ({
       ...state,
       char: e.target.value,
@@ -54,7 +54,7 @@ export default function Search() {
               placeholder='Име на рецептата ...'
               onChange={fieldChangeHandler}
             />
-            <input type='submit' value='Търси' />
+            <input id='searchBtn' type='submit' value='Търси' />
           </form>
         </div>
         <div className='search-recipe-card container'>
