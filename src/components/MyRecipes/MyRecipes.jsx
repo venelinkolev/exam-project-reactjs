@@ -6,6 +6,7 @@ import { UserContext } from '../../contexts/UserContext';
 import RecipeCard from '../Catalog/RecipeCard';
 import GoToTop from '../../util/GoToTop';
 import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
+import Spinner from '../Spinner/Spinner';
 
 export default function MyRecipes() {
   const [recipes, setRecipes] = useState([]);
@@ -34,12 +35,17 @@ export default function MyRecipes() {
   return (
     <>
       <div className='my-recipes-container'>
-        <h1>Рецепти на {userContextValues.userInfo.userName}</h1>
-        <div className='my-recipe-card container'>
-          {recipes.map((recipe) => (
-            <RecipeCard key={recipe._id} {...recipe} />
-          ))}
-        </div>
+        {recipes.length === 0 && <Spinner />}
+        {recipes.length !== 0 && (
+          <>
+            <h1>Рецепти на {userContextValues.userInfo.userName}</h1>
+            <div className='my-recipe-card container'>
+              {recipes.map((recipe) => (
+                <RecipeCard key={recipe._id} {...recipe} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
       <GoToTop />
     </>

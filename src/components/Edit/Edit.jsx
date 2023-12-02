@@ -8,6 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import GoToTop from '../../util/GoToTop';
 import useFormValidator from '../../hooks/useFormValidator';
 import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
+import Spinner from '../Spinner/Spinner';
 
 export default function Edit() {
   const {
@@ -69,20 +70,25 @@ export default function Edit() {
   return (
     <>
       <div className='edit-container'>
-        <div className='edit-recipe'>
-          <h1>Редактирай Рецепта</h1>
-          <form onSubmit={recipeEdit}>
-            <FormRecipe
-              formValidatorErrors={formValidatorErrors}
-              formValidator={formValidator}
-              formValues={formValues}
-              changeFormHandler={changeFormHandler}
-            />
-            <input type='submit' disabled={isDisabled} value='Редактирай' />
-          </form>
-        </div>
+        {formValues.recipeName === '' && <Spinner />}
+        {formValues.recipeName !== '' && (
+          <>
+            <div className='edit-recipe'>
+              <h1>Редактирай Рецепта</h1>
+              <form onSubmit={recipeEdit}>
+                <FormRecipe
+                  formValidatorErrors={formValidatorErrors}
+                  formValidator={formValidator}
+                  formValues={formValues}
+                  changeFormHandler={changeFormHandler}
+                />
+                <input type='submit' disabled={isDisabled} value='Редактирай' />
+              </form>
+            </div>
+          </>
+        )}
       </div>
-      <GoToTop />;
+      <GoToTop />
     </>
   );
 }
