@@ -116,7 +116,10 @@
 }
 
 .profile-modal {
-    display: none;
+    position: absolute;
+    top: 90px;
+    right: 0;
+    z-index: 100;
 }
 
 .nav-menu .profil .profil-info li>a:hover {

@@ -17,7 +17,7 @@ import MyRecipes from './components/MyRecipes/MyRecipes';
 import AuthGuard from './guards/AuthGuard';
 import LoginRegisterGuard from './guards/LoginRegisterGuard';
 import { ServerErrorHandlerContext } from './contexts/ServerErrorHandlerContext';
-import Profile from './components/Profile/Profile';
+// import Profile from './components/Profile/Profile';
 
 function App() {
   const [userInfo, setUserInfo] = useState(() => {
@@ -104,7 +104,7 @@ function App() {
                 <Route path='/create' element={<Create />} />
                 <Route path='/catalog/:recipeId/edit' element={<Edit />} />
                 <Route path='/my-recipes' element={<MyRecipes />} />
-                <Route path='/profile' element={<Profile />} />
+                {/* <Route path='/profile' element={<Profile />} /> */}
               </Route>
               <Route element={<LoginRegisterGuard />}>
                 <Route path='/login' element={<Login />} />

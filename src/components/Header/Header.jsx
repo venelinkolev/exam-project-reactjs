@@ -1,13 +1,15 @@
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { logout } from '../../services/userServices';
 import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
+import Profile from '../Profile/Profile';
 
 export default function Header() {
   const userContextValues = useContext(UserContext);
   const errorContextValues = useContext(ServerErrorHandlerContext);
+  const [showProfile, setShowProfile] = useState(false);
 
   const navigate = useNavigate();
 
@@ -41,6 +43,14 @@ export default function Header() {
         message: error.message,
       });
     }
+  }
+
+  function openProfileModal() {
+    setShowProfile(true);
+  }
+
+  function closeProgileModal() {
+    setShowProfile(false);
   }
 
   return (
@@ -77,7 +87,7 @@ export default function Header() {
                 </li>
                 <li>
                   <div className='profil'>
-                    <Link to={'/profile'}>
+                    <Link>
                       <svg
                         xmlns='http://www.w3.org/2000/svg'
                         viewBox='0 0 448 512'
@@ -87,10 +97,8 @@ export default function Header() {
                       <span>Profil</span>
                     </Link>
                     <ul className='profil-info'>
-                      <li>
-                        <Link to={'/profile'}>
-                          {userContextValues.userInfo.userName}
-                        </Link>
+                      <li onClick={openProfileModal}>
+                        <Link>{userContextValues.userInfo.userName}</Link>
                       </li>
                       <li>
                         <Link to={'/home'} onClick={logoutHendler}>
@@ -114,7 +122,11 @@ export default function Header() {
             )}
           </ul>
         </div>
-        <div className='profile-modal'></div>
+        {showProfile && (
+          <div className='profile-modal'>
+            <Profile closeProgileModal={closeProgileModal} />
+          </div>
+        )}
       </header>
     </>
   );

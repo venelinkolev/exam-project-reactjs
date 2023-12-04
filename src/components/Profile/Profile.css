@@ -1,0 +1,53 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    align-items: center;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 0 0 1rem 0 rgb(0, 0, 0, 0.5);
+    gap: 2rem;
+    margin: 2rem;
+    padding: 2rem;
+}
+
+.profile-container header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+.profile-container header p {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.profile-container header p:hover {
+    cursor: pointer;
+}
+
+.profile-container header h1 {
+    color: orangered;
+}
+
+.profile-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 90%;
+}
+
+.profile-container form input {
+    padding: 0.5rem 1rem;
+    font-family: Nunito, "Helvetica Neue", sans-serif;
+    border-radius: 2rem;
+    border: none;
+    color: white;
+    background-color: rgb(25, 25, 25, 0.8);
+    margin-bottom: 0.5rem;
+}
+
+.profile-container form label {
+    text-align: start;
+}
