@@ -189,4 +189,9 @@
     .expand-menu ul {
         flex-direction: column;
     }
+
+    .profile-modal {
+        top: 50px;
+        right: 10%;
+    }
 }
