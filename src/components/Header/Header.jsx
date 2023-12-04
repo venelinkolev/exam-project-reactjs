@@ -47,6 +47,7 @@ export default function Header() {
   }
 
   function openProfileModal() {
+    setShowMenu(false);
     setShowProfile(true);
   }
 
@@ -77,21 +78,21 @@ export default function Header() {
           style={showMenu ? { display: 'block' } : { display: 'none' }}
         >
           <ul>
-            <li>
+            <li onClick={menuShowOrHide}>
               <Link to='/home'>Начало</Link>
             </li>
-            <li>
+            <li onClick={menuShowOrHide}>
               <Link to='/catalog'>Каталог</Link>
             </li>
-            <li>
+            <li onClick={menuShowOrHide}>
               <Link to='/search'>Търси</Link>
             </li>
             {userContextValues.userInfo?.isUser && (
               <>
-                <li>
+                <li onClick={menuShowOrHide}>
                   <Link to='/create'>Създаване</Link>
                 </li>
-                <li>
+                <li onClick={menuShowOrHide}>
                   <Link to='/my-recipes'>Мой Рецепти</Link>
                 </li>
                 <li>
@@ -109,7 +110,7 @@ export default function Header() {
                       <li onClick={openProfileModal}>
                         <Link>{userContextValues.userInfo.userName}</Link>
                       </li>
-                      <li>
+                      <li onClick={menuShowOrHide}>
                         <Link to={'/home'} onClick={logoutHendler}>
                           Изход
                         </Link>
@@ -121,10 +122,10 @@ export default function Header() {
             )}
             {!userContextValues.userInfo?.isUser && (
               <>
-                <li>
+                <li onClick={menuShowOrHide}>
                   <Link to='/login'>Вход</Link>
                 </li>
-                <li>
+                <li onClick={menuShowOrHide}>
                   <Link to='/register'>Регистрация</Link>
                 </li>
               </>
