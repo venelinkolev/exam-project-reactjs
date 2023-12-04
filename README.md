@@ -2,49 +2,53 @@
 
 # Table of Contents
 
-<a name="introduction">Introduction</a>
-Installation
-Running the Application
-Server Configuration
-Accessing the App
-Sample Data
-User Authentication
-API Endpoints
+    - Introduction
+    - Installation
+    - Running the Application
+    - Server Configuration
+    - Accessing the App
+    - Sample Data
+    - User Authentication
+    - API Endpoints
 
-1. Introduction
+1. Introduction<a name="introduction"></a>
    Recipes is a React-based web application designed for sharing cooking recipes. The app utilizes a REST API for server communication, and the data is stored in a MongoDB database.
 
 2. Installation<a name="installation"></a>
    After cloning the project from GitHub, navigate to the project directory and install the dependencies for both the project and the REST API by running the following commands:
 
-bash
-Copy code
+2.1 Install project dependencies
 
-# Install project dependencies
+bash Copy code
 
 npm install
 
-# Install REST API dependencies
+2.2 Install REST API dependencies
 
-cd server
-npm install 3. Running the Application<a name="running-the-application"></a>
-Start the server by running the following command in the project root directory:
+bash Copy code
 
-bash
-Copy code
+cd Rest-api
+npm install
 
-# Start the server
+3. Running the Application<a name="running-the-application"></a>
+   Start the server by running the following command in the project root directory:
 
-node server/index.js
+3.1 Start the server
+
+bash Copy code
+
+node index.js
+
 To run the React app, execute the following command:
 
-bash
-Copy code
+3.2 Start the React app
 
-# Start the React app
+bash Copy code
 
-npm start 4. Server Configuration<a name="server-configuration"></a>
-The server is configured to listen on port 3000. Ensure that this port is available and not in use by other applications. If needed, you can modify the port in the server/index.js file.
+npm run dev
+
+4. Server Configuration<a name="server-configuration"></a>
+   The server is configured to listen on port 3000. Ensure that this port is available and not in use by other applications. If needed, you can modify the port in the index.js file.
 
 5. Accessing the App<a name="accessing-the-app"></a>
    Once the server and the React app are running, access the Recipes app locally by navigating to http://localhost:5173/ in your web browser.
