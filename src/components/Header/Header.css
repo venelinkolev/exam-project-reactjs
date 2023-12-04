@@ -140,6 +140,16 @@
     background-color: orangered;
 }
 
+@media (width < 990px) {
+    .logo img {
+        height: 3.5em;
+    }
+
+    .nav-menu>ul {
+        gap: 2em;
+    }
+}
+
 @media (width < 600px) {
     .header {
         justify-content: space-between;
