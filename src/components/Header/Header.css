@@ -149,6 +149,37 @@
 
     .nav-menu {
         display: none;
+        position: absolute;
+        top: 90px;
+        width: 90%;
+        right: 5%;
+        border-radius: 1rem;
+        padding: 1rem;
+        background-color: white;
+        z-index: 10;
+        box-shadow: 0 0 0.5rem 0 rgb(0, 0, 0, 0.5);
+    }
+
+    .nav-menu ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-menu ul li a {
+        color: rgb(40, 40, 40);
+    }
+
+    .profil a svg {
+        fill: rgb(40, 40, 40);
+    }
+
+    .nav-menu .profil .profil-info {
+        top: 45px;
+        right: -80px;
+    }
+
+    .nav-menu .profil .profil-info>li a {
+        text-align: center;
     }
 
     /* .expand-menu {

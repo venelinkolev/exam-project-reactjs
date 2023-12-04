@@ -1,7 +1,7 @@
 .profile-container {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 280px;
     align-items: center;
     border-radius: 1rem;
     background-color: white;
