@@ -115,6 +115,10 @@
 
 }
 
+.profile-modal {
+    display: none;
+}
+
 .nav-menu .profil .profil-info li>a:hover {
     color: white;
     background-color: orangered;

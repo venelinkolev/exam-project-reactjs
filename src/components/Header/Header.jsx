@@ -77,7 +77,7 @@ export default function Header() {
                 </li>
                 <li>
                   <div className='profil'>
-                    <Link to={'/profil'}>
+                    <Link to={'/profile'}>
                       <svg
                         xmlns='http://www.w3.org/2000/svg'
                         viewBox='0 0 448 512'
@@ -88,7 +88,7 @@ export default function Header() {
                     </Link>
                     <ul className='profil-info'>
                       <li>
-                        <Link to={'/profil'}>
+                        <Link to={'/profile'}>
                           {userContextValues.userInfo.userName}
                         </Link>
                       </li>
@@ -114,6 +114,7 @@ export default function Header() {
             )}
           </ul>
         </div>
+        <div className='profile-modal'></div>
       </header>
     </>
   );

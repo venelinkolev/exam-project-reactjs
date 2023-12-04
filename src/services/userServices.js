@@ -21,3 +21,9 @@ export async function logout() {
 
   // return result;
 }
+
+export async function getProfile() {
+  const result = await request.get(`${URL}/users/profile`);
+
+  return result;
+}
