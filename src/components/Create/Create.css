@@ -42,3 +42,13 @@
     cursor: pointer;
     background-color: orangered;
 }
+
+@media (width < 600px) {
+    .create-recipe {
+        width: 90%;
+    }
+
+    .create-container {
+        padding: 2rem 1rem;
+    }
+}
