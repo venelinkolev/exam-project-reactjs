@@ -103,3 +103,23 @@
 .register-form-container input:hover {
     border: 2px solid orange;
 }
+
+@media (width < 600px) {
+    .register-container {
+        padding: 2rem 1rem;
+    }
+
+    .register-user {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .first-last-name {
+        flex-direction: column;
+    }
+
+    .first-name>input,
+    .last-name>input {
+        width: 100%;
+    }
+}
