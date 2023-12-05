@@ -93,3 +93,18 @@
     width: 100%;
     box-shadow: 0 0 0.5em 0 rgba(0, 0, 0, 1);
 }
+
+@media (width < 600px) {
+    .search-field form {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .no-recipes {
+        width: 90%;
+    }
+
+    .no-recipes img {
+        border-radius: 1rem;
+    }
+}
