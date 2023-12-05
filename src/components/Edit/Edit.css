@@ -42,3 +42,13 @@
     cursor: pointer;
     background-color: orangered;
 }
+
+@media (width < 600px) {
+    .edit-container {
+        padding: 2rem 1.5rem;
+    }
+
+    .edit-recipe {
+        padding: 1rem;
+    }
+}

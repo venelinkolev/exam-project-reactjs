@@ -46,6 +46,7 @@
 @media (width < 600px) {
     .create-recipe {
         width: 90%;
+        padding: 1rem;
     }
 
     .create-container {
