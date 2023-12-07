@@ -6,11 +6,11 @@
     align-items: center;
 }
 
-/* .menu-icon {
-    display: none;
-} */
-
 .menu-icon {
+    display: none;
+}
+
+/* .menu-icon {
     display: flex;
     height: 2.5em;
 }
@@ -21,7 +21,7 @@
 
 .menu-icon:hover {
     cursor: pointer;
-}
+} */
 
 .nav-menu>ul {
     display: flex;
@@ -151,20 +151,24 @@
 }
 
 @media (width < 600px) {
+    .nav-bar-desktop {
+        display: none;
+    }
+
     .header {
         justify-content: space-between;
         padding: 0.5em 1.5em;
         position: relative;
     }
 
-    /* .menu-icon {
+    .menu-icon {
         display: flex;
         height: 2.5em;
     }
 
     .menu-icon svg {
         fill: white;
-    } */
+    }
 
     .logo img {
         height: 4em;

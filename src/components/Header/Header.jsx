@@ -5,6 +5,7 @@ import { UserContext } from '../../contexts/UserContext';
 import { logout } from '../../services/userServices';
 import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
 import Profile from '../Profile/Profile';
+import NavBar from '../NavBar/NavBar';
 
 export default function Header() {
   const userContextValues = useContext(UserContext);
@@ -51,7 +52,7 @@ export default function Header() {
     setShowProfile(true);
   }
 
-  function closeProgileModal() {
+  function closeProfileModal() {
     setShowProfile(false);
   }
 
@@ -132,9 +133,16 @@ export default function Header() {
             <path d='M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z' />
           </svg>
         </div>
+        <div className='nav-bar-desktop'>
+          <NavBar
+            userContextValues={userContextValues}
+            openProfileModal={openProfileModal}
+            logoutHendler={logoutHendler}
+          />
+        </div>
         {showProfile && (
           <div className='profile-modal'>
-            <Profile closeProgileModal={closeProgileModal} />
+            <Profile closeProgileModal={closeProfileModal} />
           </div>
         )}
       </header>

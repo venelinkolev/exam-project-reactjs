@@ -1,0 +1,77 @@
+.nav-menu-desktop>ul {
+    display: flex;
+    align-items: center;
+    gap: 3em;
+}
+
+.nav-menu-desktop li,
+.nav-menu-desktop a {
+    display: block;
+}
+
+.nav-menu-desktop ul li>a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.3rem;
+    transition: color 0.8s ease-in-out;
+}
+
+.nav-menu-desktop ul li>a:hover {
+    color: orangered;
+}
+
+.profile-desktop {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.nav-menu-desktop .profile-desktop svg:hover {
+    /* border-color: orangered; */
+    fill: orangered;
+}
+
+.nav-menu-desktop .profile-desktop:hover .profile-desktop-info {
+    display: flex;
+}
+
+.profile-desktop span {
+    display: none;
+}
+
+.profile-desktop svg {
+    cursor: pointer;
+    fill: white;
+    height: 2.2em;
+    /* border: 2px solid white; */
+    border-radius: 50%;
+    aspect-ratio: 1;
+    padding: 2px;
+    transition: fill 0.8s ease-in-out;
+}
+
+.nav-menu-desktop .profile-desktop .profile-desktop-info {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 35px;
+    right: 0;
+}
+
+.nav-menu-desktop .profile-desktop .profile-desktop-info>li a {
+    display: block;
+    font-size: 1.1rem;
+    min-width: 200px;
+    text-align: end;
+    padding: 0.5rem 0.8rem;
+    background-color: white;
+    border-right: 3px solid orangered;
+    border-left: 3px solid orangered;
+    color: black;
+
+}
+
+.nav-menu-desktop .profile-desktop .profile-desktop-info li>a:hover {
+    color: white;
+    background-color: orangered;
+}

@@ -23,3 +23,14 @@
     justify-content: space-evenly;
     gap: 2rem;
 }
+
+@media (width < 600px) {
+    .my-recipes-container h1 {
+        line-height: 1em;
+        text-align: center;
+    }
+
+    .my-recipes-container {
+        padding: 2rem 1rem;
+    }
+}
