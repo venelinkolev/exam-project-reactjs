@@ -9,10 +9,10 @@ export default function Footer() {
           <section className='about-as'>
             <h2>За нас</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Praesentium a voluptates, eos alias, consequatur illo tempore
-              reprehenderit aliquam recusandae nesciunt nobis, libero veritatis.
-              Quidem, consequatur suscipit nulla repellendus odio molestiae.
+              Ние сме ценители на кулинарното изкуство. С приятелите ни обичаме
+              често да си споделяме различни рецепти. Както и да изпробваме нещо
+              ново всеки път. Причината да направим този сайт е точно тази, да
+              споделяме рецепти. Бон Апетит!
             </p>
           </section>
           <section className='menu'>
