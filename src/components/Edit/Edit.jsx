@@ -70,8 +70,8 @@ export default function Edit() {
   return (
     <>
       <div className='edit-container'>
-        {formValues.recipeName === '' && <Spinner />}
-        {formValues.recipeName !== '' && (
+        {formValues._id === '' && <Spinner />}
+        {formValues._id !== '' && (
           <>
             <div className='edit-recipe'>
               <h1>Редактирай Рецепта</h1>
