@@ -7,6 +7,7 @@ import useTitleChange from '../../hooks/useTitleChange';
 import GoToTop from '../../util/GoToTop';
 import { ServerErrorHandlerContext } from '../../contexts/ServerErrorHandlerContext';
 import Spinner from '../Spinner/Spinner';
+import ContactUs from '../ContactUs/ContactUs';
 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
@@ -90,7 +91,12 @@ export default function Home() {
         <CatalogHomePage recipes={homeCatalogRecipes()} />
       </section>
       <hr />
-      <section className='top-recipes-home-page'></section>
+      <section className='container'>
+        <div className='contact-us-map'>
+          <h2>СВЪРЖИ СЕ С НАС</h2>
+        </div>
+        <ContactUs />
+      </section>
       <GoToTop />
     </>
   );

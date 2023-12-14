@@ -45,6 +45,21 @@
     align-items: center;
 }
 
+.contact-us-map {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.contact-us-map h2 {
+    color: rgb(40, 40, 40);
+    text-align: center;
+    font-size: 3em;
+    font-weight: 800;
+    line-height: 0.8;
+    border-bottom: 3px solid orangered;
+}
+
 @media (width < 600px) {
     .hero-banner {
         padding: 2em;
@@ -64,5 +79,11 @@
 
     .header-section h2 {
         font-size: 1.3em;
+    }
+
+    .header-recipe h2,
+    .contact-us-map h2 {
+        line-height: 1;
+        font-size: 2.5em;
     }
 }

@@ -64,6 +64,8 @@
         flex-direction: column;
         align-items: center;
         padding: 2em;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     .day-recipe article {
