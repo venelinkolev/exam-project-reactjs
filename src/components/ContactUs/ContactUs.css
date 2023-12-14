@@ -68,6 +68,7 @@
 @media (width < 600px) {
     .contact-us-with-map {
         flex-direction: column;
+        align-items: stretch;
     }
 
     .map iframe {
